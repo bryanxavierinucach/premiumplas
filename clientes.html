@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Estudio Nómada</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFBF7',
+                        'green-600': '#059669',
+                        'green-700': '#047857',
+                        'blue-900': '#1e3a5f',
+                        'amber-600': '#d97706',
+                        'gray-700': '#374151',
+                        'gray-600': '#4b5563',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .grayscale-hover:hover {
+            filter: grayscale(0%);
+        }
+        .grayscale {
+            filter: grayscale(100%);
+        }
+        .smooth-transition {
+            transition: all 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-cream font-sans text-gray-700">
+    
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-6">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0">
+                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-24 w-auto">
+                </a>
+                
+                <!-- Navigation -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Inicio</a>
+                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Nosotros</a>
+                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 text-green-600">Clientes</a>
+                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Catálogo</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Blog</a>
+                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Contacto</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 hover:text-amber-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-blue-900/60"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
+            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Confían en nosotros</span>
+            <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mt-4 mb-6">Nuestros Clientes</h1>
+        </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="py-24 bg-cream">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="text-gray-600 text-xl font-light leading-relaxed">
+                A lo largo de más de 15 años, hemos tenido el privilegio de trabajar con más de 50 clientes satisfechos, desde familias que buscan transformar su hogar hasta empresas que desean crear espacios de trabajo inspiradores.
+            </p>
+        </div>
+    </section>
+
+    <!-- MARCAS SECTION -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Marcas y Empresas</span>
+                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Han confiado en nosotros</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-12 items-center">
+                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
+                    <i class="fas fa-building text-5xl text-gray-400"></i>
+                </div>
+                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
+                    <i class="fas fa-hotel text-5xl text-gray-400"></i>
+                </div>
+                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
+                    <i class="fas fa-store text-5xl text-gray-400"></i>
+                </div>
+                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
+                    <i class="fas fa-briefcase text-5xl text-gray-400"></i>
+                </div>
+                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
+                    <i class="fas fa-spa text-5xl text-gray-400"></i>
+                </div>
+                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
+                    <i class="fas fa-utensils text-5xl text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS SECTION -->
+    <section class="py-32 bg-cream">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Testimonios</span>
+                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Lo que dicen nuestros clientes</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white p-10 border-l-4 border-green-600">
+                    <i class="fas fa-quote-left text-green-600 text-2xl mb-6"></i>
+                    <p class="text-gray-600 text-lg font-light italic leading-relaxed mb-8">
+                        "Estudio Nómada transformó completamente nuestro hogar. Su atención al detalle y sensibilidad estética superaron todas nuestras expectativas. Recomendamos altamente sus servicios."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                        <div>
+                            <div class="font-serif text-xl text-gray-700">María González</div>
+                            <div class="text-gray-500 text-sm">Cliente Residencial</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-10 border-l-4 border-green-600">
+                    <i class="fas fa-quote-left text-green-600 text-2xl mb-6"></i>
+                    <p class="text-gray-600 text-lg font-light italic leading-relaxed mb-8">
+                        "Profesionalismo excepcional y creatividad sin límites. El diseño de nuestra oficina refleja perfectamente nuestra identidad corporativa. Una experiencia impecable."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                        <div>
+                            <div class="font-serif text-xl text-gray-700">Carlos Ramírez</div>
+                            <div class="text-gray-500 text-sm">CEO, Tech Solutions</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-10 border-l-4 border-green-600">
+                    <i class="fas fa-quote-left text-green-600 text-2xl mb-6"></i>
+                    <p class="text-gray-600 text-lg font-light italic leading-relaxed mb-8">
+                        "Desde el primer momento, el equipo de Estudio Nómada entendió nuestra visión. Crearon un restaurante que no solo es hermoso, sino que también mejora la experiencia de nuestros comensales."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                        <div>
+                            <div class="font-serif text-xl text-gray-700">Elena Torres</div>
+                            <div class="text-gray-500 text-sm">Propietaria, La Terraza</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-10 border-l-4 border-green-600">
+                    <i class="fas fa-quote-left text-green-600 text-2xl mb-6"></i>
+                    <p class="text-gray-600 text-lg font-light italic leading-relaxed mb-8">
+                        "Trabajar con Estudio Nómada fue una experiencia transformadora. Transformed our hotel lobby into a space that guests love. Our occupancy rates have increased since the renovation."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                        <div>
+                            <div class="font-serif text-xl text-gray-700">Roberto Sánchez</div>
+                            <div class="text-gray-500 text-sm">Director, Hotel Boutique</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS DE ÉXITO -->
+    <section class="py-32 bg-blue-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Casos de Éxito</span>
+                <h2 class="font-serif text-5xl md:text-6xl text-white mt-4 mb-6">Proyectos que hablan por sí mismos</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="bg-white/10 backdrop-blur-sm p-8 border border-white/20">
+                    <div class="font-serif text-4xl text-white mb-4">200+</div>
+                    <h3 class="font-serif text-2xl text-white mb-4">Proyectos Completados</h3>
+                    <p class="text-white/80 font-light">Desde residenciales hasta comerciales, hemos completado más de 200 proyectos exitosos.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm p-8 border border-white/20">
+                    <div class="font-serif text-4xl text-white mb-4">98%</div>
+                    <h3 class="font-serif text-2xl text-white mb-4">Satisfacción del Cliente</h3>
+                    <p class="text-white/80 font-light">Nuestro compromiso con la excelencia nos mantiene en los estándares más altos.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm p-8 border border-white/20">
+                    <div class="font-serif text-4xl text-white mb-4">12</div>
+                    <h3 class="font-serif text-2xl text-white mb-4">Premios Internacionales</h3>
+                    <p class="text-white/80 font-light">Reconocidos por nuestra innovación y diseño excepcional a nivel mundial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTES RESIDENCIALES -->
+    <section class="py-32 bg-cream">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Proyectos Residenciales</span>
+                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Hogares transformados</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group">
+                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80" alt="Proyecto Residencial 1" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
+                    </div>
+                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Villa Mediterránea</h3>
+                    <p class="text-green-600 font-medium mb-2">Ciudad de México</p>
+                    <p class="text-gray-600 font-light">450 m² de diseño integral con vista al bosque.</p>
+                </div>
+                
+                <div class="group">
+                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Proyecto Residencial 2" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
+                    </div>
+                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Penthouse Urbano</h3>
+                    <p class="text-green-600 font-medium mb-2">Polanco, CDMX</p>
+                    <p class="text-gray-600 font-light">200 m² con diseño minimalista y elegante.</p>
+                </div>
+                
+                <div class="group">
+                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Proyecto Residencial 3" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
+                    </div>
+                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Casa de Campo</h3>
+                    <p class="text-green-600 font-medium mb-2">Valle de Bravo</p>
+                    <p class="text-gray-600 font-light">600 m² con materiales rústicos y contemporáneos.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="catalogo.html" class="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-300 group">
+                    Ver todos los proyectos
+                    <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 smooth-transition"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-32 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mb-6">¿Te gustaría ser nuestro próximo cliente?</h2>
+            <p class="text-gray-600 text-xl font-light leading-relaxed mb-10">
+                Agenda una consulta gratuita y descubre cómo podemos transformar tu espacio.
+            </p>
+            <a href="contacto.html" class="inline-block px-12 py-5 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors duration-300 rounded-none">
+                Agendar Consulta
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-cream pt-20 pb-10 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-16 mb-16">
+                <!-- Info Estudio -->
+                <div>
+                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-16 w-auto mb-6">
+                    <p class="text-gray-600 font-light leading-relaxed mb-6">
+                        Estudio de diseño de interiores premium dedicado a crear espacios únicos que inspiran y transforman vidas.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Navegación -->
+                <div>
+                    <h4 class="font-serif text-2xl text-gray-700 mb-6">Navegación</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Inicio</a></li>
+                        <li><a href="nosotros.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Nosotros</a></li>
+                        <li><a href="clientes.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Clientes</a></li>
+                        <li><a href="catalogo.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Catálogo</a></li>
+                        <li><a href="blog.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Blog</a></li>
+                        <li><a href="contacto.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-serif text-2xl text-gray-700 mb-6">Contacto</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start text-gray-600 font-light">
+                            <i class="fas fa-map-marker-alt text-green-600 mt-1 mr-4"></i>
+                            Av. Principal 1234, Ciudad de México
+                        </li>
+                        <li class="flex items-center text-gray-600 font-light">
+                            <i class="fas fa-phone text-green-600 mr-4"></i>
+                            +52 (55) 1234 5678
+                        </li>
+                        <li class="flex items-center text-gray-600 font-light">
+                            <i class="fas fa-envelope text-green-600 mr-4"></i>
+                            hola@estudionomada.com
+                        </li>
+                        <li class="flex items-center text-gray-600 font-light">
+                            <i class="fas fa-clock text-green-600 mr-4"></i>
+                            Lun - Vie: 9:00 - 18:00 hrs
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 pt-10 text-center">
+                <p class="text-gray-500 font-light">
+                    &copy; 2024 Estudio Nómada. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
