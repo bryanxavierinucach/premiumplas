@@ -3,364 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Estudio Nómada</title>
+    <meta name="description" content="Descubre inspiración para tu hogar: tendencias en diseño de interiores, consejos de decoración, guías de estilo y más en el blog de Premiumplas.">
+    <title>Blog | Premiumplas - Inspiración para Tu Hogar</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#FDFBF7',
-                        'green-600': '#059669',
-                        'green-700': '#047857',
-                        'blue-900': '#1e3a5f',
-                        'amber-600': '#d97706',
-                        'gray-700': '#374151',
-                        'gray-600': '#4b5563',
-                    },
-                    fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['"Inter"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        .grayscale-hover:hover {
-            filter: grayscale(0%);
-        }
-        .grayscale {
-            filter: grayscale(100%);
-        }
-        .smooth-transition {
-            transition: all 0.4s ease-in-out;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="bg-cream font-sans text-gray-700">
-    
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-sm">
-        <nav class="max-w-7xl mx-auto px-6 py-6">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0">
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-24 w-auto">
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/images/logocompleto.png" alt="Premiumplas Logo">
                 </a>
                 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 text-green-600">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Contacto</a>
-                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                    <li><a href="clientes.html" class="nav-link">Clientes</a></li>
+                    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
                 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-amber-600">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-cream shadow-lg py-6 px-6 border-t border-gray-200">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2 text-green-600">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Contacto</a>
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1920&q=80'); background-size: cover; background-position: center;">
-        <div class="absolute inset-0 bg-blue-900/60"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
-            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Inspírate</span>
-            <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mt-4 mb-6">Nuestro Blog</h1>
-        </div>
-    </section>
-
-    <!-- BLOG POSTS -->
-    <section class="py-24 bg-cream">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- Post Principal -->
-                <div class="lg:col-span-2">
-                    <article class="group">
-                        <div class="w-full h-[500px] bg-gray-100 mb-8 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Tendencias 2024" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        </div>
-                        <div class="flex items-center space-x-6 mb-4">
-                            <span class="text-green-600 font-medium"><i class="fas fa-tag mr-2"></i>Diseño</span>
-                            <span class="text-gray-500"><i class="fas fa-calendar mr-2"></i>15 de Enero, 2024</span>
-                        </div>
-                        <h2 class="font-serif text-4xl text-gray-700 mb-4 group-hover:text-green-600 transition-colors duration-300">Tendencias de Diseño de Interiores para 2024</h2>
-                        <p class="text-gray-600 text-lg font-light leading-relaxed mb-6">
-                            El año 2024 trae consigo una revolución en el mundo del diseño de interiores. Descubrimos las tendencias que marcarán el estilo de los espacios contemporáneos, desde la sostenibilidad hasta los colores bold que definirán las paredes de los hogares modernos.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-300 group">
-                            Leer más
-                            <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 smooth-transition"></i>
-                        </a>
-                    </article>
-                </div>
-                
-                <!-- Sidebar Posts -->
-                <div class="space-y-8">
-                    <article class="group flex gap-6">
-                        <div class="w-32 h-32 bg-gray-100 flex-shrink-0 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&q=80" alt="Post 1" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        </div>
-                        <div>
-                            <div class="flex items-center space-x-4 mb-2">
-                                <span class="text-green-600 text-xs font-medium"><i class="fas fa-tag mr-1"></i>Ideas</span>
-                                <span class="text-gray-500 text-xs">10 Ene, 2024</span>
-                            </div>
-                            <h3 class="font-serif text-xl text-gray-700 group-hover:text-green-600 transition-colors duration-300">5 Ideas para Maximizar Espacios Pequeños</h3>
-                        </div>
-                    </article>
-                    
-                    <article class="group flex gap-6">
-                        <div class="w-32 h-32 bg-gray-100 flex-shrink-0 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=300&q=80" alt="Post 2" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        </div>
-                        <div>
-                            <div class="flex items-center space-x-4 mb-2">
-                                <span class="text-green-600 text-xs font-medium"><i class="fas fa-tag mr-1"></i>Materiales</span>
-                                <span class="text-gray-500 text-xs">5 Ene, 2024</span>
-                            </div>
-                            <h3 class="font-serif text-xl text-gray-700 group-hover:text-green-600 transition-colors duration-300">Materiales Sostenibles que Amamos</h3>
-                        </div>
-                    </article>
-                    
-                    <article class="group flex gap-6">
-                        <div class="w-32 h-32 bg-gray-100 flex-shrink-0 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&q=80" alt="Post 3" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        </div>
-                        <div>
-                            <div class="flex items-center space-x-4 mb-2">
-                                <span class="text-green-600 text-xs font-medium"><i class="fas fa-tag mr-1"></i>Colores</span>
-                                <span class="text-gray-500 text-xs">28 Dic, 2023</span>
-                            </div>
-                            <h3 class="font-serif text-xl text-gray-700 group-hover:text-green-600 transition-colors duration-300">Cómo Elegir la Paleta Perfecta</h3>
-                        </div>
-                    </article>
-                    
-                    <article class="group flex gap-6">
-                        <div class="w-32 h-32 bg-gray-100 flex-shrink-0 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=300&q=80" alt="Post 4" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        </div>
-                        <div>
-                            <div class="flex items-center space-x-4 mb-2">
-                                <span class="text-green-600 text-xs font-medium"><i class="fas fa-tag mr-1"></i>Proyectos</span>
-                                <span class="text-gray-500 text-xs">20 Dic, 2023</span>
-                            </div>
-                            <h3 class="font-serif text-xl text-gray-700 group-hover:text-green-600 transition-colors duration-300">Behind the Scenes: Villa Mediterránea</h3>
-                        </div>
-                    </article>
-                </div>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Nuestro Blog</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span>Blog</span>
             </div>
         </div>
     </section>
 
-    <!-- MORE POSTS -->
-    <section class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mb-6">Últimos Artículos</h2>
-                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Post 1 -->
-                <article class="group">
-                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Iluminación" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <div class="flex items-center space-x-6 mb-4">
-                        <span class="text-green-600 font-medium text-sm"><i class="fas fa-tag mr-2"></i>Iluminación</span>
-                        <span class="text-gray-500 text-sm">12 Ene, 2024</span>
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4 group-hover:text-green-600 transition-colors duration-300">La Importancia de la Iluminación Natural</h3>
-                    <p class="text-gray-600 font-light leading-relaxed mb-4">
-                        Descubre cómo aprovechar la luz natural para transformar tus espacios y mejorar tu bienestar.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-300 group">
-                        Leer más
-                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 smooth-transition"></i>
-                    </a>
-                </article>
-                
-                <!-- Post 2 -->
-                <article class="group">
-                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Minimalismo" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <div class="flex items-center space-x-6 mb-4">
-                        <span class="text-green-600 font-medium text-sm"><i class="fas fa-tag mr-2"></i>Estilo</span>
-                        <span class="text-gray-500 text-sm">8 Ene, 2024</span>
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4 group-hover:text-green-600 transition-colors duration-300">Minimalismo: Menos es Más</h3>
-                    <p class="text-gray-600 font-light leading-relaxed mb-4">
-                        El arte de desapegarse de lo material para crear espacios que respiren y permitan la claridad mental.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-300 group">
-                        Leer más
-                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 smooth-transition"></i>
-                    </a>
-                </article>
-                
-                <!-- Post 3 -->
-                <article class="group">
-                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Biophilic Design" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <div class="flex items-center space-x-6 mb-4">
-                        <span class="text-green-600 font-medium text-sm"><i class="fas fa-tag mr-2"></i>Sostenibilidad</span>
-                        <span class="text-gray-500 text-sm">3 Ene, 2024</span>
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4 group-hover:text-green-600 transition-colors duration-300">Biophilic Design: Conectando con la Naturaleza</h3>
-                    <p class="text-gray-600 font-light leading-relaxed mb-4">
-                        Integrar elementos naturales en el diseño interior no es solo estético, es esencial para nuestra salud.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-300 group">
-                        Leer más
-                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 smooth-transition"></i>
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEWSLETTER -->
-    <section class="py-24 bg-blue-900">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Mantente informado</span>
-            <h2 class="font-serif text-5xl md:text-6xl text-white mt-4 mb-6">Suscríbete a nuestro Newsletter</h2>
-            <p class="text-white/80 text-lg font-light leading-relaxed mb-10">
-                Recibe las últimas tendencias de diseño, consejos prácticos y inspiration directamente en tu correo.
-            </p>
-            <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-                <input type="email" placeholder="Tu correo electrónico" class="flex-1 px-6 py-4 bg-white text-gray-700 placeholder-gray-400 focus:outline-none rounded-none">
-                <button type="submit" class="px-10 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors duration-300 rounded-none">
-                    Suscribirse
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-cream pt-20 pb-10 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-16 mb-16">
-                <!-- Info Estudio -->
-                <div>
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-16 w-auto mb-6">
-                    <p class="text-gray-600 font-light leading-relaxed mb-6">
-                        Estudio de diseño de interiores premium dedicado a crear espacios únicos que inspiran y transforman vidas.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-pinterest-p"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Navegación -->
-                <div>
-                    <h4 class="font-serif text-2xl text-gray-700 mb-6">Navegación</h4>
-                    <ul class="space-y-4">
-                        <li><a href="index.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Inicio</a></li>
-                        <li><a href="nosotros.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Nosotros</a></li>
-                        <li><a href="clientes.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Clientes</a></li>
-                        <li><a href="catalogo.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Catálogo</a></li>
-                        <li><a href="blog.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Blog</a></li>
-                        <li><a href="contacto.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contacto -->
-                <div>
-                    <h4 class="font-serif text-2xl text-gray-700 mb-6">Contacto</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start text-gray-600 font-light">
-                            <i class="fas fa-map-marker-alt text-green-600 mt-1 mr-4"></i>
-                            Av. Principal 1234, Ciudad de México
-                        </li>
-                        <li class="flex items-center text-gray-600 font-light">
-                            <i class="fas fa-phone text-green-600 mr-4"></i>
-                            +52 (55) 1234 5678
-                        </li>
-                        <li class="flex items-center text-gray-600 font-light">
-                            <i class="fas fa-envelope text-green-600 mr-4"></i>
-                            hola@estudionomada.com
-                        </li>
-                        <li class="flex items-center text-gray-600 font-light">
-                            <i class="fas fa-clock text-green-600 mr-4"></i>
-                            Lun - Vie: 9:00 - 18:00 hrs
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Copyright -->
-            <div class="border-t border-gray-200 pt-10 text-center">
-                <p class="text-gray-500 font-light">
-                    &copy; 2024 Estudio Nómada. Todos los derechos reservados.
+    <!-- Blog Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" style="max-width: 800px;">
+                <p class="section-subtitle">Inspiración Diaria</p>
+                <h2 class="section-title">Ideas y Tendencias para Tu Hogar</h2>
+                <p class="section-description">
+                    Encuentra inspiración, consejos prácticos y las últimas tendencias en diseño de interiores. Nuestro equipo de expertos comparte conocimientos para ayudarte a crear espacios que reflejen tu estilo y personalidad.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="about-preview" style="grid-template-columns: 1.2fr 1fr;">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1000&q=80" 
+                         alt="Interior contemporaneocon diseño minimalista y piezas de arte" 
+                         loading="lazy">
+                </div>
+                <div class="about-content">
+                    <span style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-secondary);">Artículo Destacado</span>
+                    <h2 style="font-size: 2rem; margin: 1rem 0;">Tendencias en Diseño de Interiores 2024</h2>
+                    <p style="margin-bottom: 1.5rem;">
+                        El año trae consigo una evolución hacia espacios más cálidos, personales y sostenibles. Descubrimos las tendencias que marcarán el diseño de interiores este año y cómo incorporarlas en tu hogar sin perder la atemporalidad.
+                    </p>
+                    <p style="margin-bottom: 1.5rem;">
+                        Desde materiales naturales hasta colores terrosos, pasando por el retorno de los espacios multifuncionales, analizamos cada tendencia con consejos prácticos para su implementación.
+                    </p>
+                    <a href="#" class="btn btn-primary">Leer Artículo Completo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?w=800&q=80" 
+                             alt="Sala de estar con paleta de colores neutros y muebles de diseño" 
+                             loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span>15 Enero, 2024</span>
+                        <span>•</span>
+                        <span>Decoración</span>
+                    </div>
+                    <h3 class="blog-title">Cómo Crear una Paleta de Colores Coherente</h3>
+                    <p class="blog-excerpt">
+                        Guía completa para seleccionar colores que armonicen entre sí y creen espacios equilibrados y sofisticados en tu hogar.
+                    </p>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&q=80" 
+                             alt="Comedor moderno con mesa de madera y sillas de diseño" 
+                             loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span>10 Enero, 2024</span>
+                        <span>•</span>
+                        <span>Mobiliario</span>
+                    </div>
+                    <h3 class="blog-title">Guía para Elegir el Mobiliario Perfecto</h3>
+                    <p class="blog-excerpt">
+                        Consejos expertos para seleccionar piezas que combinen funcionalidad, estilo y calidad, creando un hogar coherente y elegante.
+                    </p>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1581783342308-f792ca11dfdd?w=800&q=80" 
+                             alt="Lámparas de pie y mesa creando ambiente cálido en sala de estar" 
+                             loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span>5 Enero, 2024</span>
+                        <span>•</span>
+                        <span>Iluminación</span>
+                    </div>
+                    <h3 class="blog-title">El Arte de la Iluminación Ambiental</h3>
+                    <p class="blog-excerpt">
+                        Aprende a combinar diferentes fuentes de luz para crear ambientes acogedores y funcionales en cada habitación de tu hogar.
+                    </p>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80" 
+                             alt="Detalle de textiles: cojines y mantas en tonos neutros" 
+                             loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span>28 Diciembre, 2023</span>
+                        <span>•</span>
+                        <span>Textiles</span>
+                    </div>
+                    <h3 class="blog-title">Textiles que Transforman Espacios</h3>
+                    <p class="blog-excerpt">
+                        Descubre cómo los textiles pueden agregar textura, color y calidez a tu hogar, convirtiendo cualquier habitación en un refugio acogedor.
+                    </p>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80" 
+                             alt="Mesa de comedor elegantemente puesta para una cena especial" 
+                             loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span>20 Diciembre, 2023</span>
+                        <span>•</span>
+                        <span>Vajilla</span>
+                    </div>
+                    <h3 class="blog-title">El Arte de Vestir la Mesa</h3>
+                    <p class="blog-excerpt">
+                        Secretos y consejos para crear mesas dignas de un restaurante gourmet, transformando cada comida en una experiencia especial.
+                    </p>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80" 
+                             alt="Decoración minimalista con jarrones y elementos naturales" 
+                             loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span>15 Diciembre, 2023</span>
+                        <span>•</span>
+                        <span>Decoración</span>
+                    </div>
+                    <h3 class="blog-title">Minimalismo con Personalidad</h3>
+                    <p class="blog-excerpt">
+                        Cómo lograr espacios minimalistas que no parezcan fríos, incorporando elementos personales y cálidos sin perder la elegancia.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Explora Por</p>
+                <h2 class="section-title">Categorías del Blog</h2>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="#" class="category-card" style="aspect-ratio: 16/9;">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?w=800&q=80" 
+                         alt="Ideas de decoración para el hogar" 
+                         loading="lazy">
+                    <div class="category-overlay">
+                        <h3 class="category-name">Decoración</h3>
+                        <span class="category-link">12 artículos →</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card" style="aspect-ratio: 16/9;">
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&q=80" 
+                         alt="Guía de mobiliario y muebles" 
+                         loading="lazy">
+                    <div class="category-overlay">
+                        <h3 class="category-name">Mobiliario</h3>
+                        <span class="category-link">8 artículos →</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card" style="aspect-ratio: 16/9;">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80" 
+                         alt="Iluminación y ambientación" 
+                         loading="lazy">
+                    <div class="category-overlay">
+                        <h3 class="category-name">Iluminación</h3>
+                        <span class="category-link">6 artículos →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Recibe Inspiración en Tu Correo</h2>
+                <p class="newsletter-description">
+                    Suscríbete a nuestro boletín y recibe artículos exclusivos, consejos de diseño y acceso anticipado a nuestras nuevas colecciones.
+                </p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+                    <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/logocompleto.png" alt="Premiumplas Logo">
+                    </div>
+                    <p class="footer-description">
+                        Creando espacios excepcionales con piezas de menaje y diseño que inspiran y perduran.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="Facebook">FB</a>
+                        <a href="#" class="social-link" aria-label="Pinterest">PI</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="catalogo.html">Catálogo</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="clientes.html">Clientes</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Categorías</h4>
+                    <ul class="footer-links">
+                        <li><a href="catalogo.html#vajilla">Vajilla</a></li>
+                        <li><a href="catalogo.html#mobiliario">Mobiliario</a></li>
+                        <li><a href="catalogo.html#textiles">Textiles</a></li>
+                        <li><a href="catalogo.html#iluminacion">Iluminación</a></li>
+                        <li><a href="catalogo.html#decoracion">Decoración</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Atención al Cliente</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Envíos y Devoluciones</a></li>
+                        <li><a href="#">Guía de Cuidados</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Premiumplas. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu JavaScript -->
     <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                }
-            });
-        }
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
     </script>
-
 </body>
 </html>

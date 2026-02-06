@@ -3,379 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros - Premiumplas</title>
+    <meta name="description" content="Conoce la historia de Premiumplas, nuestra pasión por el diseño y nuestro compromiso con la calidad y el servicio excepcional.">
+    <title>Nosotros | Premiumplas - Historia y Valores</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#FDFBF7',
-                        'green-600': '#059669',
-                        'green-700': '#047857',
-                        'blue-900': '#1e3a5f',
-                        'amber-600': '#d97706',
-                        'gray-700': '#374151',
-                        'gray-600': '#4b5563',
-                    },
-                    fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['"Inter"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        .grayscale-hover:hover {
-            filter: grayscale(0%);
-        }
-        .grayscale {
-            filter: grayscale(100%);
-        }
-        .smooth-transition {
-            transition: all 0.4s ease-in-out;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="bg-cream font-sans text-gray-700">
-    
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-sm">
-        <nav class="max-w-7xl mx-auto px-6 py-6">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0">
-                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-24 w-auto">
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/images/logocompleto.png" alt="Premiumplas Logo">
                 </a>
                 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 text-green-600">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Contacto</a>
-                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="nosotros.html" class="nav-link active">Nosotros</a></li>
+                    <li><a href="clientes.html" class="nav-link">Clientes</a></li>
+                    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
                 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-amber-600">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-cream shadow-lg py-6 px-6 border-t border-gray-200">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2 text-green-600">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Contacto</a>
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80'); background-size: cover; background-position: center;">
-        <div class="absolute inset-0 bg-blue-900/60"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
-            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Conoce PremiumPlas</span>
-            <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mt-4 mb-6">Sobre Nosotros</h1>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Nuestra Historia</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span>Nosotros</span>
+            </div>
         </div>
     </section>
 
-    <!-- MISIÓN Y VISIÓN -->
-    <section class="py-32 bg-cream">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <!-- Misión -->
-                <div class="bg-white p-10 border-l-4 border-green-600 shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-bullseye text-green-600 text-2xl"></i>
-                        </div>
-                        <h2 class="font-serif text-4xl text-gray-700">Misión</h2>
-                    </div>
-                    <p class="text-gray-600 text-lg font-light leading-relaxed">
-                        Somos una empresa dedicada a la venta y distribución de artículos de cocina, menaje y productos de limpieza. Atendemos las necesidades de nuestros clientes ofreciendo variedad, calidad y precios competitivos, garantizando rapidez en la entrega y un servicio cercano que asegura su satisfacción. Nos diferenciamos por la atención personalizada y la confianza que generamos, convirtiendo cada compra en una experiencia práctica y segura.
-                    </p>
+    <!-- Our Story -->
+    <section class="section">
+        <div class="container">
+            <div class="about-preview">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" 
+                         alt="Tienda de diseño con iluminación cálida y productos expuestos" 
+                         loading="lazy">
                 </div>
-                
-                <!-- Visión -->
-                <div class="bg-white p-10 border-l-4 border-amber-600 shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-eye text-amber-600 text-2xl"></i>
-                        </div>
-                        <h2 class="font-serif text-4xl text-gray-700">Visión</h2>
-                    </div>
-                    <p class="text-gray-600 text-lg font-light leading-relaxed">
-                        Convertirnos en una empresa referente en distribución de artículos de cocina y afines, reconocida por su innovación, servicio rápido, distribución eficiente y capacidad de adaptarse a las nuevas tendencias. Aspiramos a expandir nuestra presencia en diferentes mercados, incorporando propuestas sostenibles, plataformas digitales y servicios complementarios que generen valor y fortalezcan la relación con nuestros clientes.
+                <div class="about-content">
+                    <p class="section-subtitle">Desde 2015</p>
+                    <h2 class="section-title">Una Pasión por el Diseño</h2>
+                    <p style="margin-bottom: 1.5rem;">
+                        Premiumplas nació de una visión simple pero ambiciosa: hacer que el diseño de calidad fuera accesible para todos. Lo que comenzó como una pequeña tienda de menaje en el corazón de la ciudad, ha crecido hasta convertirse en una referencia en el mundo del diseño de interiores.
+                    </p>
+                    <p style="margin-bottom: 1.5rem;">
+                        Nuestra fundadora, María Elena Rodríguez, siempre sintió una profunda conexión con los objetos bellos y bien elaborados. Después de años de experiencia en el sector del diseño de interiores, decidió crear un espacio donde las personas pudieran encontrar piezas únicas que transformaran sus hogares.
+                    </p>
+                    <p>
+                        Hoy, Premiumplas es sinónimo de calidad, estilo y servicio excepcional. Cada pieza de nuestro catálogo ha sido seleccionada cuidadosamente para asegurar que cumpla con nuestros altos estándares de diseño y durabilidad.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- VALORES CORPORATIVOS -->
-    <section class="py-32 bg-blue-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Lo que nos define</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-white mt-4 mb-6">Nuestros Valores</h2>
-                <div class="w-24 h-1 bg-amber-600 mx-auto"></div>
+    <!-- Mission Vision Values -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Lo Que Nos Guía</p>
+                <h2 class="section-title">Nuestra Esencia</h2>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Calidad -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 text-center hover:bg-white/20 smooth-transition">
-                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-medal text-white text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Calidad</h3>
-                    <p class="text-white/80 font-light">Nos comprometemos a ofrecer productos confiables y de alto estándar que satisfagan las necesidades de nuestros clientes.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">◎</div>
+                    <h3 class="value-title">Nuestra Visión</h3>
+                    <p class="value-description">
+                        Aspiramos a ser el referente en diseño de menaje y hogar, inspirando a las personas a crear espacios que reflejen su personalidad y les traigan alegría cotidiana.
+                    </p>
                 </div>
                 
-                <!-- Compromiso -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 text-center hover:bg-white/20 smooth-transition">
-                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-handshake text-white text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Compromiso</h3>
-                    <p class="text-white/80 font-light">Trabajamos con responsabilidad y dedicación para cumplir lo que prometemos, cuidando cada detalle del servicio.</p>
+                <div class="value-card">
+                    <div class="value-icon">◇</div>
+                    <h3 class="value-title">Nuestra Misión</h3>
+                    <p class="value-description">
+                        Seleccionar y ofrecer piezas de diseño excepcionales que combinen belleza, funcionalidad y calidad, proporcionando a nuestros clientes una experiencia de compra memorable.
+                    </p>
                 </div>
                 
-                <!-- Honestidad -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 text-center hover:bg-white/20 smooth-transition">
-                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-heart text-white text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Honestidad</h3>
-                    <p class="text-white/80 font-light">Actuamos con transparencia, ética y respeto en todas nuestras relaciones comerciales.</p>
-                </div>
-                
-                <!-- Servicio al Cliente -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 text-center hover:bg-white/20 smooth-transition">
-                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-users text-white text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Servicio al Cliente</h3>
-                    <p class="text-white/80 font-light">Brindamos una atención cercana, personalizada y oportuna, enfocada en generar confianza y relaciones duraderas.</p>
-                </div>
-                
-                <!-- Responsabilidad -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 text-center hover:bg-white/20 smooth-transition">
-                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-check-circle text-white text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Responsabilidad</h3>
-                    <p class="text-white/80 font-light">Cumplimos con nuestros procesos, tiempos de entrega y normativas, aportando al bienestar de nuestros clientes y colaboradores.</p>
-                </div>
-                
-                <!-- Innovación -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 text-center hover:bg-white/20 smooth-transition">
-                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-lightbulb text-white text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Innovación</h3>
-                    <p class="text-white/80 font-light">Buscamos constantemente nuevas soluciones y mejoras para adaptarnos a las necesidades del mercado y del entorno digital.</p>
-                </div>
-                
-                <!-- Trabajo en Equipo -->
-                <div class="bg-white/10 backdrop-blur-sm p-8 text-center hover:bg-white/20 smooth-transition">
-                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-users-cog text-white text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Trabajo en Equipo</h3>
-                    <p class="text-white/80 font-light">Creemos en la colaboración y el respeto mutuo para alcanzar objetivos comunes y ofrecer un mejor servicio.</p>
+                <div class="value-card">
+                    <div class="value-icon">✦</div>
+                    <h3 class="value-title">Nuestros Valores</h3>
+                    <p class="value-description">
+                        Integridad, excelencia, innovación y servicio al cliente son los pilares que sustentan cada decisión que tomamos y cada relación que construimos.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ESTADÍSTICAS -->
-    <section class="py-24 bg-green-600">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 text-center">
-                <div>
-                    <div class="font-serif text-5xl text-white mb-2">10+</div>
-                    <div class="text-white/80 font-light">Años de Experiencia</div>
-                </div>
-                <div>
-                    <div class="font-serif text-5xl text-white mb-2">500+</div>
-                    <div class="text-white/80 font-light">Clientes Satisfechos</div>
-                </div>
-                <div>
-                    <div class="font-serif text-5xl text-white mb-2">1000+</div>
-                    <div class="text-white/80 font-light">Productos</div>
-                </div>
-                <div>
-                    <div class="font-serif text-5xl text-white mb-2">24h</div>
-                    <div class="text-white/80 font-light">Tiempo de Entrega</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- POR QUÉ ELEGIRNOS -->
-    <section class="py-32 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Nuestra Propuesta</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">¿Por Qué Elegirnos?</h2>
-                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Las Caras Detrás</p>
+                <h2 class="section-title">Nuestro Equipo</h2>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="bg-white p-10 shadow-lg hover:shadow-xl smooth-transition">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-truck text-green-600 text-2xl"></i>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" 
+                             alt="María Elena Rodríguez, Fundadora y Directora Creativa" 
+                             loading="lazy">
                     </div>
-                    <h3 class="font-serif text-3xl text-gray-700 mb-4 text-center">Distribución Eficiente</h3>
-                    <p class="text-gray-600 font-light leading-relaxed text-center">
-                        Contamos con una red de distribución ágil y confiable que garantiza que tus productos lleguen a tiempo, siempre.
-                    </p>
+                    <h3 class="team-name">María Elena Rodríguez</h3>
+                    <p class="team-role">Fundadora y Directora Creativa</p>
                 </div>
                 
-                <div class="bg-white p-10 shadow-lg hover:shadow-xl smooth-transition">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-boxes text-green-600 text-2xl"></i>
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" 
+                             alt="Carlos Mendoza, Director de Compras" 
+                             loading="lazy">
                     </div>
-                    <h3 class="font-serif text-3xl text-gray-700 mb-4 text-center">Variedad de Productos</h3>
-                    <p class="text-gray-600 font-light leading-relaxed text-center">
-                        Amplio catálogo de artículos de cocina, menaje y productos de limpieza para satisfacer todas tus necesidades.
-                    </p>
+                    <h3 class="team-name">Carlos Mendoza</h3>
+                    <p class="team-role">Director de Compras</p>
                 </div>
                 
-                <div class="bg-white p-10 shadow-lg hover:shadow-xl smooth-transition">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-headset text-green-600 text-2xl"></i>
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" 
+                             alt="Ana Sofía Torres, Gerente de Diseño" 
+                             loading="lazy">
                     </div>
-                    <h3 class="font-serif text-3xl text-gray-700 mb-4 text-center">Atención Personalizada</h3>
-                    <p class="text-gray-600 font-light leading-relaxed text-center">
-                        Un equipo dedicado a entender tus requerimientos y brindarte soluciones adaptées a tu negocio.
-                    </p>
+                    <h3 class="team-name">Ana Sofía Torres</h3>
+                    <p class="team-role">Gerente de Diseño</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" 
+                             alt="Roberto Jiménez, Atención al Cliente" 
+                             loading="lazy">
+                    </div>
+                    <h3 class="team-name">Roberto Jiménez</h3>
+                    <p class="team-role">Atención al Cliente</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA SECTION -->
-    <section class="py-32 bg-blue-900">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="font-serif text-5xl md:text-6xl text-white mb-6">¿Listo para trabajar juntos?</h2>
-            <p class="text-white/80 text-xl font-light leading-relaxed mb-10">
-                Descubre cómo PremiumPlas puede impulsar tu negocio con productos de calidad y servicio excepcional.
-            </p>
-            <a href="contacto.html" class="inline-block px-12 py-5 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors duration-300 rounded-none">
-                Contáctanos
-            </a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-cream pt-20 pb-10 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-16 mb-16">
-                <!-- Info PremiumPlas -->
-                <div>
-                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto mb-6">
-                    <p class="text-gray-600 font-light leading-relaxed mb-6">
-                        Empresa líder en distribución de artículos de cocina, menaje y productos de limpieza. Calidad, compromiso y servicio cercano.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Navegación -->
-                <div>
-                    <h4 class="font-serif text-2xl text-gray-700 mb-6">Navegación</h4>
-                    <ul class="space-y-4">
-                        <li><a href="index.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Inicio</a></li>
-                        <li><a href="nosotros.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Nosotros</a></li>
-                        <li><a href="clientes.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Clientes</a></li>
-                        <li><a href="catalogo.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Catálogo</a></li>
-                        <li><a href="blog.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Blog</a></li>
-                        <li><a href="contacto.html" class="text-gray-600 hover:text-amber-600 font-light transition-colors duration-300">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contacto -->
-                <div>
-                    <h4 class="font-serif text-2xl text-gray-700 mb-6">Contacto</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start text-gray-600 font-light">
-                            <i class="fas fa-map-marker-alt text-green-600 mt-1 mr-4"></i>
-                            Av. Principal 1234, Ciudad
-                        </li>
-                        <li class="flex items-center text-gray-600 font-light">
-                            <i class="fas fa-phone text-green-600 mr-4"></i>
-                            +593 (XX) XXX XXXX
-                        </li>
-                        <li class="flex items-center text-gray-600 font-light">
-                            <i class="fas fa-envelope text-green-600 mr-4"></i>
-                            info@premiumplas.com
-                        </li>
-                        <li class="flex items-center text-gray-600 font-light">
-                            <i class="fas fa-clock text-green-600 mr-4"></i>
-                            Lun - Vie: 8:00 - 18:00 hrs
-                        </li>
-                    </ul>
-                </div>
+    <!-- Process Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Cómo Trabajamos</p>
+                <h2 class="section-title">Nuestro Proceso</h2>
             </div>
             
-            <!-- Copyright -->
-            <div class="border-t border-gray-200 pt-10 text-center">
-                <p class="text-gray-500 font-light">
-                    &copy; 2024 PremiumPlas. Todos los derechos reservados.
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">1</div>
+                    <h3 class="value-title">Selección</h3>
+                    <p class="value-description">
+                        Viajamos por el mundo en busca de artesanos y diseñadores que compartan nuestra visión de excelencia y belleza atemporal.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">2</div>
+                    <h3 class="value-title">Curaduría</h3>
+                    <p class="value-description">
+                        Cada pieza es evaluada por nuestro equipo de diseño, asegurando que cumpla con nuestros estándares de calidad y estética.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">3</div>
+                    <h3 class="value-title">Presentación</h3>
+                    <p class="value-description">
+                        Creamos experiencias de compra excepcionales, tanto en nuestras tiendas como en línea, donde cada pieza puede ser apreciada en todo su splendor.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">En Números</p>
+                <h2 class="section-title">Nuestra Trayectoria</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card" style="text-align: center; padding: 3rem;">
+                    <h3 style="font-size: 3.5rem; color: var(--color-secondary); margin-bottom: 0.5rem;">8+</h3>
+                    <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 0.5rem;">Años de Experiencia</p>
+                    <p class="testimonial-text" style="font-size: 1rem;">Desde 2015 trayendo diseño de calidad a miles de hogares</p>
+                </div>
+                
+                <div class="testimonial-card" style="text-align: center; padding: 3rem;">
+                    <h3 style="font-size: 3.5rem; color: var(--color-secondary); margin-bottom: 0.5rem;">50+</h3>
+                    <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 0.5rem;">Países de Origen</p>
+                    <p class="testimonial-text" style="font-size: 1rem;">Artesanos y diseñadores de todo el mundo en nuestro catálogo</p>
+                </div>
+                
+                <div class="testimonial-card" style="text-align: center; padding: 3rem;">
+                    <h3 style="font-size: 3.5rem; color: var(--color-secondary); margin-bottom: 0.5rem;">15K+</h3>
+                    <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 0.5rem;">Clientes Satisfechos</p>
+                    <p class="testimonial-text" style="font-size: 1rem;">Familias que han transformado sus hogares con Premiumplas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">¿Te Gusta Lo Que Vees?</h2>
+                <p class="section-description" style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Descubre nuestra colección completa de piezas de diseño seleccionadas con cuidado y pasión.
                 </p>
+                <a href="catalogo.html" class="btn btn-primary">Explorar Catálogo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/logocompleto.png" alt="Premiumplas Logo">
+                    </div>
+                    <p class="footer-description">
+                        Creando espacios excepcionales con piezas de menaje y diseño que inspiran y perduran.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="Facebook">FB</a>
+                        <a href="#" class="social-link" aria-label="Pinterest">PI</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="catalogo.html">Catálogo</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="clientes.html">Clientes</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Categorías</h4>
+                    <ul class="footer-links">
+                        <li><a href="catalogo.html#vajilla">Vajilla</a></li>
+                        <li><a href="catalogo.html#mobiliario">Mobiliario</a></li>
+                        <li><a href="catalogo.html#textiles">Textiles</a></li>
+                        <li><a href="catalogo.html#iluminacion">Iluminación</a></li>
+                        <li><a href="catalogo.html#decoracion">Decoración</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Atención al Cliente</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Envíos y Devoluciones</a></li>
+                        <li><a href="#">Guía de Cuidados</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Premiumplas. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu JavaScript -->
     <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
         });
     </script>
-
 </body>
 </html>
