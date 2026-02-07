@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo - Estudio Nómada</title>
+    <title>Catálogo - Premiumplas</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,368 +40,428 @@
     </script>
     
     <style>
-        .grayscale-hover:hover {
-            filter: grayscale(0%);
-        }
-        .grayscale {
-            filter: grayscale(100%);
-        }
         .smooth-transition {
             transition: all 0.4s ease-in-out;
+        }
+        
+        /* Modern Menu Styles */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #059669, #047857);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 80%;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            color: #059669;
+            font-weight: 500;
+        }
+        
+        /* Glassmorphism Header */
+        .glass-header {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(5, 150, 105, 0.1);
+        }
+        
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, rgba(5, 150, 105, 0.1), transparent);
+            transition: width 0.3s ease;
+        }
+        
+        .mobile-nav-link:hover::before,
+        .mobile-nav-link.active::before {
+            width: 100%;
+        }
+        
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            padding-left: 1.5rem;
+        }
+        
+        /* Animated Hamburger */
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        /* Logo Scale Animation */
+        .logo-container {
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Product Card Hover */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
         }
     </style>
 </head>
 <body class="bg-cream font-sans text-gray-700">
     
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-sm">
-        <nav class="max-w-7xl mx-auto px-6 py-6">
+    <!-- HEADER MODERNO -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0">
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-24 w-auto">
+                <a href="index.html" class="logo-container flex-shrink-0">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-20 w-auto">
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 text-green-600">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Contacto</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Inicio</span>
+                    </a>
+                    <a href="nosotros.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Nosotros</span>
+                    </a>
+                    <a href="clientes.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Clientes</span>
+                    </a>
+                    <a href="catalogo.html" class="nav-link active text-gray-800 font-medium">
+                        <span class="relative z-10">Catálogo</span>
+                    </a>
+                    <a href="blog.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Blog</span>
+                    </a>
+                    <a href="contacto.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="catalogo.html" class="px-6 py-2.5 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-600/30 transform hover:-translate-y-0.5">
+                        Ver Catálogo
+                    </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-amber-600">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button id="mobile-menu-btn" class="hamburger lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
                 </button>
             </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-cream shadow-lg py-6 px-6 border-t border-gray-200">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2 text-green-600">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Contacto</a>
+        </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 lg:hidden"></div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-cream z-50 lg:hidden shadow-2xl">
+            <div class="p-6">
+                <!-- Mobile Logo -->
+                <div class="flex items-center justify-between mb-8">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto">
+                    <button id="mobile-menu-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-times text-xl text-gray-600"></i>
+                    </button>
+                </div>
+                
+                <!-- Mobile Navigation -->
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-home mr-3 w-5"></i>Inicio
+                    </a>
+                    <a href="nosotros.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-users mr-3 w-5"></i>Nosotros
+                    </a>
+                    <a href="clientes.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-heart mr-3 w-5"></i>Clientes
+                    </a>
+                    <a href="catalogo.html" class="mobile-nav-link active px-4 py-3 text-green-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-box mr-3 w-5"></i>Catálogo
+                    </a>
+                    <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-newspaper mr-3 w-5"></i>Blog
+                    </a>
+                    <a href="contacto.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-envelope mr-3 w-5"></i>Contacto
+                    </a>
+                </div>
+                
+                <!-- Mobile CTA -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <a href="catalogo.html" class="block w-full px-6 py-3 bg-green-600 text-white font-medium text-center rounded-full hover:bg-green-700 transition-all duration-300">
+                        Ver Catálogo
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-4 mt-6">
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1920&q=80'); background-size: cover; background-position: center;">
-        <div class="absolute inset-0 bg-blue-900/50"></div>
+    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-blue-900/60"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
-            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Descubre</span>
-            <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mt-4 mb-6">Catálogo de Menaje</h1>
-            <p class="text-white/90 text-xl font-light max-w-2xl mx-auto">
-                Piezas únicas cuidadosamente seleccionadas para transformar tu hogar
-            </p>
+            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Calidad y Variedad</span>
+            <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mt-4 mb-6">Nuestro Catálogo</h1>
         </div>
     </section>
 
-    <!-- FILTER SECTION -->
-    <section class="py-12 bg-cream border-b border-gray-200">
+    <!-- CATÁLOGO -->
+    <section class="py-32 bg-cream">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-8">
-                <button class="px-8 py-3 bg-green-600 text-white font-medium rounded-none">Todos</button>
-                <button class="px-8 py-3 bg-white text-gray-700 font-medium hover:bg-green-600 hover:text-white transition-colors duration-300 rounded-none">Textiles</button>
-                <button class="px-8 py-3 bg-white text-gray-700 font-medium hover:bg-green-600 hover:text-white transition-colors duration-300 rounded-none">Vajilla</button>
-                <button class="px-8 py-3 bg-white text-gray-700 font-medium hover:bg-green-600 hover:text-white transition-colors duration-300 rounded-none">Decoración</button>
-                <button class="px-8 py-3 bg-white text-gray-700 font-medium hover:bg-green-600 hover:text-white transition-colors duration-300 rounded-none">Iluminación</button>
-                <button class="px-8 py-3 bg-white text-gray-700 font-medium hover:bg-green-600 hover:text-white transition-colors duration-300 rounded-none">Muebles</button>
+            <div class="text-center mb-20">
+                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Productos Premium</span>
+                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Explora Nuestro Catálogo</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- PRODUCTOS GRID -->
-    <section class="py-24 bg-cream">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Fila 1 -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            
+            <!-- Filtros -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <button class="px-6 py-2 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-all duration-300">Todos</button>
+                <button class="px-6 py-2 bg-white text-gray-700 font-medium rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 border border-gray-200">Artículos de Cocina</button>
+                <button class="px-6 py-2 bg-white text-gray-700 font-medium rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 border border-gray-200">Menaje</button>
+                <button class="px-6 py-2 bg-white text-gray-700 font-medium rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 border border-gray-200">Productos de Limpieza</button>
+            </div>
+            
+            <!-- Productos -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 <!-- Producto 1 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80" alt="Set de Vajilla" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute top-4 right-4 bg-amber-600 text-white text-xs font-medium px-3 py-1">Nuevo</div>
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584992236310-6eddd3f4a94c?w=600&q=80" alt="Ollas de Cocina" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white text-sm font-medium px-3 py-1 rounded-full">Popular</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-2">Ollas de Cocina</h3>
+                        <p class="text-gray-600 font-light mb-4"> Ollas de acero inoxidable de alta calidad</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold text-xl">Desde $25</span>
+                            <button class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Vajilla</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Set de Vajilla Cerámica</h3>
-                    <p class="text-gray-500 font-light">$1,250.00 MXN</p>
                 </div>
                 
                 <!-- Producto 2 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e35a6?w=600&q=80" alt="Cojines Decorativos" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80" alt="Vajillas" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-2">Vajillas Completas</h3>
+                        <p class="text-gray-600 font-light mb-4"> Sets de vajilla para todo tipo de ocasión</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold text-xl">Desde $45</span>
+                            <button class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Textiles</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Cojines de Lino</h3>
-                    <p class="text-gray-500 font-light">$890.00 MXN</p>
                 </div>
                 
                 <!-- Producto 3 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Lámpara de Mesa" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1588515724527-074a7a56616c?w=600&q=80" alt="Cubiertos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-2">Cubiertos</h3>
+                        <p class="text-gray-600 font-light mb-4"> Cubiertos de acero inoxidable</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold text-xl">Desde $15</span>
+                            <button class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Iluminación</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Lámpara de Latón</h3>
-                    <p class="text-gray-500 font-light">$2,450.00 MXN</p>
                 </div>
                 
                 <!-- Producto 4 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Jarrón Decorativo" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Sartenes" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-amber-600 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-2">Sartenes Antiadherentes</h3>
+                        <p class="text-gray-600 font-light mb-4"> Sartenes de alta durabilidad</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold text-xl">Desde $20</span>
+                            <button class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Decoración</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Jarrón Artesanal</h3>
-                    <p class="text-gray-500 font-light">$1,890.00 MXN</p>
                 </div>
                 
                 <!-- Producto 5 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1611486212557-88be5ff6f941?w=600&q=80" alt="Toallas de Baño" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600&q=80" alt="Recipientes" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-2">Recipientes de Vidrio</h3>
+                        <p class="text-gray-600 font-light mb-4"> Recipientes herméticos para alimentos</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold text-xl">Desde $12</span>
+                            <button class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Textiles</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Set Toallas Orgánicas</h3>
-                    <p class="text-gray-500 font-light">$650.00 MXN</p>
                 </div>
                 
                 <!-- Producto 6 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80" alt="Copas de Vidrio" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581553690325-78dbf98afbe1?w=600&q=80" alt="Utensilios" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-2">Utensilios de Cocina</h3>
+                        <p class="text-gray-600 font-light mb-4"> Cucharas, tenedores y cuchillos profesionales</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold text-xl">Desde $8</span>
+                            <button class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Vajilla</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Set Copas de Vidrio</h3>
-                    <p class="text-gray-500 font-light">$780.00 MXN</p>
                 </div>
                 
                 <!-- Producto 7 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1505693416388-b0346efee539?w=600&q=80" alt="Espejo de Pared" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581553690325-78dbf98afbe1?w=600&q=80" alt="Dispensadores" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-2">Dispensadores</h3>
+                        <p class="text-gray-600 font-light mb-4"> Dispensadores de jabón y otros líquidos</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold text-xl">Desde $10</span>
+                            <button class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Decoración</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Espejo Redondo</h3>
-                    <p class="text-gray-500 font-light">$3,200.00 MXN</p>
                 </div>
                 
                 <!-- Producto 8 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Sofá Minimalista" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584992236310-6eddd3f4a94c?w=600&q=80" alt="Productos de Limpieza" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white text-sm font-medium px-3 py-1 rounded-full">Oferta</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-2">Productos de Limpieza</h3>
+                        <p class="text-gray-600 font-light mb-4"> Artículos de limpieza profesionales</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold text-xl">Desde $5</span>
+                            <button class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Muebles</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Sofá de Terciopelo</h3>
-                    <p class="text-gray-500 font-light">$15,900.00 MXN</p>
                 </div>
             </div>
             
-            <!-- Fila 2 -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Producto 9 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&q=80" alt="Platos Decorativos" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
-                        </div>
-                    </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Vajilla</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Platos Decorativos</h3>
-                    <p class="text-gray-500 font-light">$450.00 MXN</p>
-                </div>
-                
-                <!-- Producto 10 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1567306301408-9b74779a11af?w=600&q=80" alt="Mantel de Lino" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
-                        </div>
-                    </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Textiles</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Mantel de Lino</h3>
-                    <p class="text-gray-500 font-light">$1,100.00 MXN</p>
-                </div>
-                
-                <!-- Producto 11 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&q=80" alt="Vela Aromática" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute top-4 right-4 bg-amber-600 text-white text-xs font-medium px-3 py-1">25% OFF</div>
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
-                        </div>
-                    </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Decoración</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Vela Aromática</h3>
-                    <p class="text-gray-500 font-light"><span class="line-through text-gray-400 mr-2">$480.00</span>$360.00 MXN</p>
-                </div>
-                
-                <!-- Producto 12 -->
-                <div class="group">
-                    <div class="w-full h-80 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1540932296234-4d6f546d4c5c?w=600&q=80" alt="Florero de Cerámica" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                        <div class="absolute inset-0 bg-green-600/80 opacity-0 group-hover:opacity-100 smooth-transition flex items-center justify-center">
-                            <a href="#" class="px-6 py-3 bg-white text-gray-700 font-medium rounded-none">Ver Detalles</a>
-                        </div>
-                    </div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Decoración</span>
-                    <h3 class="font-serif text-xl text-gray-700 mt-2 mb-1 group-hover:text-green-600 transition-colors">Florero de Cerámica</h3>
-                    <p class="text-gray-500 font-light">$920.00 MXN</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCTO DESTACADO -->
-    <section class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Selección Especial</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Producto Destacado</h2>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="relative">
-                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-green-600"></div>
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" alt="Set de Vajilla Cerámica" class="w-full h-[500px] object-cover grayscale grayscale-hover smooth-transition relative z-10">
-                    </div>
-                </div>
-                <div>
-                    <span class="text-amber-600 text-sm font-medium tracking-widest uppercase">Vajilla</span>
-                    <h3 class="font-serif text-4xl text-gray-700 mt-2 mb-4">Set de Vajilla Cerámica Artesanal</h3>
-                    <p class="text-gray-600 text-lg font-light leading-relaxed mb-6">
-                        Este excepcional set de vajilla combina tradición artesanal con diseño contemporáneo. Cada pieza está elaborada a mano por artesanos mexicanos, utilizando técnicas de barro negro tradicionales. El acabado único presenta variaciones naturales que hacen que cada pieza sea verdaderamente única.
-                    </p>
-                    <p class="text-green-600 font-serif text-3xl mb-8">$1,250.00 MXN</p>
-                    
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-700 font-light">
-                            <i class="fas fa-check text-green-600 mr-4"></i>
-                            Incluye: 4 platos principales, 4 platos secundarios, 4 bowls
-                        </li>
-                        <li class="flex items-center text-gray-700 font-light">
-                            <i class="fas fa-check text-green-600 mr-4"></i>
-                            Material: Cerámica artesanal
-                        </li>
-                        <li class="flex items-center text-gray-700 font-light">
-                            <i class="fas fa-check text-green-600 mr-4"></i>
-                            Apto para microondas y lavavajillas
-                        </li>
-                    </ul>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="contacto.html" class="flex-1 px-8 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors duration-300 rounded-none text-center">
-                            Comprar Ahora
-                        </a>
-                        <a href="contacto.html" class="flex-1 px-8 py-4 bg-white text-gray-700 font-medium hover:bg-gray-100 border border-gray-300 transition-colors duration-300 rounded-none text-center">
-                            Agendar Consulta
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATEGORÍAS -->
-    <section class="py-24 bg-cream">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Explora</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Nuestras Categorías</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="group text-center">
-                    <div class="w-full h-48 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e35a6?w=400&q=80" alt="Textiles" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Textiles</h3>
-                    <p class="text-gray-600 font-light text-sm">Cojines, manteles, toallas y más</p>
-                    <a href="#" class="inline-block mt-4 text-green-600 font-medium hover:text-green-700 transition-colors duration-300">
-                        Ver productos <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-                
-                <div class="group text-center">
-                    <div class="w-full h-48 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&q=80" alt="Vajilla" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Vajilla</h3>
-                    <p class="text-gray-600 font-light text-sm">Platos, copas, bowls y accesorios</p>
-                    <a href="#" class="inline-block mt-4 text-green-600 font-medium hover:text-green-700 transition-colors duration-300">
-                        Ver productos <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-                
-                <div class="group text-center">
-                    <div class="w-full h-48 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80" alt="Decoración" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Decoración</h3>
-                    <p class="text-gray-600 font-light text-sm">Jarrones, espejos, velas y más</p>
-                    <a href="#" class="inline-block mt-4 text-green-600 font-medium hover:text-green-700 transition-colors duration-300">
-                        Ver productos <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-                
-                <div class="group text-center">
-                    <div class="w-full h-48 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80" alt="Muebles" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Muebles</h3>
-                    <p class="text-gray-600 font-light text-sm">Sillas, mesas, sofás y más</p>
-                    <a href="#" class="inline-block mt-4 text-green-600 font-medium hover:text-green-700 transition-colors duration-300">
-                        Ver productos <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
+            <!-- Ver más -->
+            <div class="text-center mt-16">
+                <button class="px-10 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-all duration-300 rounded-full shadow-lg hover:shadow-xl">
+                    Cargar Más Productos
+                </button>
             </div>
         </div>
     </section>
 
     <!-- CTA SECTION -->
-    <section class="py-24 bg-blue-900">
+    <section class="py-32 bg-blue-900">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="font-serif text-5xl md:text-6xl text-white mb-6">¿No encuentras lo que buscas?</h2>
             <p class="text-white/80 text-xl font-light leading-relaxed mb-10">
-                Contáctanos y te ayudamos a encontrar las piezas perfectas para tu hogar. También realizamos pedidos personalizados.
+                Contáctanos y te ayudaremos a encontrar los productos perfectos para tu negocio o hogar.
             </p>
-            <a href="contacto.html" class="inline-block px-12 py-5 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors duration-300 rounded-none">
+            <a href="contacto.html" class="inline-block px-12 py-5 bg-green-600 text-white font-medium hover:bg-green-700 transition-all duration-300 rounded-full">
                 Contáctanos
             </a>
         </div>
@@ -411,11 +471,11 @@
     <footer class="bg-cream pt-20 pb-10 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-16 mb-16">
-                <!-- Info Estudio -->
+                <!-- Info PremiumPlas -->
                 <div>
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-16 w-auto mb-6">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto mb-6">
                     <p class="text-gray-600 font-light leading-relaxed mb-6">
-                        Estudio de diseño de interiores premium dedicado a crear espacios únicos que inspiran y transforman vidas.
+                        Empresa líder en distribución de artículos de cocina, menaje y productos de limpieza. Calidad, compromiso y servicio cercano.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
@@ -425,10 +485,7 @@
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-pinterest-p"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
@@ -452,19 +509,19 @@
                     <ul class="space-y-4">
                         <li class="flex items-start text-gray-600 font-light">
                             <i class="fas fa-map-marker-alt text-green-600 mt-1 mr-4"></i>
-                            Av. Principal 1234, Ciudad de México
+                            Av. Principal 1234, Ciudad
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-phone text-green-600 mr-4"></i>
-                            +52 (55) 1234 5678
+                            +593 (XX) XXX XXXX
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-envelope text-green-600 mr-4"></i>
-                            hola@estudionomada.com
+                            info@premiumplas.com
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-clock text-green-600 mr-4"></i>
-                            Lun - Vie: 9:00 - 18:00 hrs
+                            Lun - Vie: 8:00 - 18:00 hrs
                         </li>
                     </ul>
                 </div>
@@ -473,7 +530,7 @@
             <!-- Copyright -->
             <div class="border-t border-gray-200 pt-10 text-center">
                 <p class="text-gray-500 font-light">
-                    &copy; 2024 Estudio Nómada. Todos los derechos reservados.
+                    &copy; 2024 PremiumPlas. Todos los derechos reservados.
                 </p>
             </div>
         </div>
@@ -483,20 +540,70 @@
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mainHeader = document.getElementById('main-header');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileMenuOverlay.classList.add('open');
+            mobileMenuBtn.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.classList.remove('open');
+            mobileMenuBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
         
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                if (mobileMenu.classList.contains('open')) {
+                    closeMobileMenu();
                 } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
+                    openMobileMenu();
                 }
             });
         }
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                mainHeader.classList.add('shadow-lg');
+                mainHeader.classList.remove('py-4');
+                mainHeader.classList.add('py-3');
+            } else {
+                mainHeader.classList.remove('shadow-lg');
+                mainHeader.classList.remove('py-3');
+                mainHeader.classList.add('py-4');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     </script>
 
 </body>

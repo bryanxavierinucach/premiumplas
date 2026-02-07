@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Estudio Nómada</title>
+    <title>Contacto - Premiumplas</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,261 +40,393 @@
     </script>
     
     <style>
-        .grayscale-hover:hover {
-            filter: grayscale(0%);
-        }
-        .grayscale {
-            filter: grayscale(100%);
-        }
         .smooth-transition {
             transition: all 0.4s ease-in-out;
+        }
+        
+        /* Modern Menu Styles */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #059669, #047857);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 80%;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            color: #059669;
+            font-weight: 500;
+        }
+        
+        /* Glassmorphism Header */
+        .glass-header {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(5, 150, 105, 0.1);
+        }
+        
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, rgba(5, 150, 105, 0.1), transparent);
+            transition: width 0.3s ease;
+        }
+        
+        .mobile-nav-link:hover::before,
+        .mobile-nav-link.active::before {
+            width: 100%;
+        }
+        
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            padding-left: 1.5rem;
+        }
+        
+        /* Animated Hamburger */
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        /* Logo Scale Animation */
+        .logo-container {
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Form Input Animation */
+        .input-group {
+            position: relative;
+        }
+        
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body class="bg-cream font-sans text-gray-700">
     
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-sm">
-        <nav class="max-w-7xl mx-auto px-6 py-6">
+    <!-- HEADER MODERNO -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0">
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-24 w-auto">
+                <a href="index.html" class="logo-container flex-shrink-0">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-20 w-auto">
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 text-green-600">Contacto</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Inicio</span>
+                    </a>
+                    <a href="nosotros.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Nosotros</span>
+                    </a>
+                    <a href="clientes.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Clientes</span>
+                    </a>
+                    <a href="catalogo.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Catálogo</span>
+                    </a>
+                    <a href="blog.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Blog</span>
+                    </a>
+                    <a href="contacto.html" class="nav-link active text-gray-800 font-medium">
+                        <span class="relative z-10">Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="catalogo.html" class="px-6 py-2.5 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-600/30 transform hover:-translate-y-0.5">
+                        Ver Catálogo
+                    </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-amber-600">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button id="mobile-menu-btn" class="hamburger lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
                 </button>
             </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-cream shadow-lg py-6 px-6 border-t border-gray-200">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2 text-green-600">Contacto</a>
+        </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 lg:hidden"></div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-cream z-50 lg:hidden shadow-2xl">
+            <div class="p-6">
+                <!-- Mobile Logo -->
+                <div class="flex items-center justify-between mb-8">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto">
+                    <button id="mobile-menu-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-times text-xl text-gray-600"></i>
+                    </button>
+                </div>
+                
+                <!-- Mobile Navigation -->
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-home mr-3 w-5"></i>Inicio
+                    </a>
+                    <a href="nosotros.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-users mr-3 w-5"></i>Nosotros
+                    </a>
+                    <a href="clientes.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-heart mr-3 w-5"></i>Clientes
+                    </a>
+                    <a href="catalogo.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-box mr-3 w-5"></i>Catálogo
+                    </a>
+                    <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-newspaper mr-3 w-5"></i>Blog
+                    </a>
+                    <a href="contacto.html" class="mobile-nav-link active px-4 py-3 text-green-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-envelope mr-3 w-5"></i>Contacto
+                    </a>
+                </div>
+                
+                <!-- Mobile CTA -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <a href="catalogo.html" class="block w-full px-6 py-3 bg-green-600 text-white font-medium text-center rounded-full hover:bg-green-700 transition-all duration-300">
+                        Ver Catálogo
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-4 mt-6">
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80'); background-size: cover; background-position: center;">
+    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-blue-900/60"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
-            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Hablemos</span>
-            <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mt-4 mb-6">Contáctanos</h1>
+            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Contáctanos</span>
+            <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mt-4 mb-6">Escríbenos</h1>
         </div>
     </section>
 
-    <!-- CONTACTO SECTION -->
-    <section class="py-24 bg-cream">
+    <!-- CONTACTO -->
+    <section class="py-32 bg-cream">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16">
-                <!-- Formulario -->
+                <!-- Información de Contacto -->
                 <div>
-                    <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Escríbenos</span>
-                    <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-8">Cuéntanos sobre tu proyecto</h2>
+                    <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Estamos para servirte</span>
+                    <h2 class="font-serif text-5xl text-gray-700 mt-4 mb-8">Información de Contacto</h2>
                     <p class="text-gray-600 text-lg font-light leading-relaxed mb-10">
-                        Estamos emocionados de conocer tu visión. Completa el formulario y nos pondremos en contacto contigo dentro de las próximas 24 horas.
+                        ¿Tienes alguna pregunta o necesitas más información sobre nuestros productos? 
+                        Estamos aquí para ayudarte. Contáctanos y te responderemos en breve.
                     </p>
                     
-                    <form class="space-y-8">
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <label class="block text-gray-700 font-medium mb-3">Nombre *</label>
-                                <input type="text" placeholder="Tu nombre completo" class="w-full px-6 py-4 bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-colors duration-300 rounded-none">
+                    <div class="space-y-8">
+                        <div class="flex items-start group">
+                            <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mr-6 group-hover:bg-green-600 transition-all duration-300">
+                                <i class="fas fa-map-marker-alt text-green-600 text-xl group-hover:text-white transition-colors duration-300"></i>
                             </div>
                             <div>
-                                <label class="block text-gray-700 font-medium mb-3">Apellido *</label>
-                                <input type="text" placeholder="Tu apellido" class="w-full px-6 py-4 bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-colors duration-300 rounded-none">
-                            </div>
-                        </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <label class="block text-gray-700 font-medium mb-3">Email *</label>
-                                <input type="email" placeholder="tu@email.com" class="w-full px-6 py-4 bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-colors duration-300 rounded-none">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 font-medium mb-3">Teléfono</label>
-                                <input type="tel" placeholder="+52 (55) 1234 5678" class="w-full px-6 py-4 bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-colors duration-300 rounded-none">
+                                <h3 class="font-serif text-2xl text-gray-700 mb-2">Dirección</h3>
+                                <p class="text-gray-600 font-light">Av. Principal 1234, Ciudad<br>Ecuador</p>
                             </div>
                         </div>
                         
-                        <div>
-                            <label class="block text-gray-700 font-medium mb-3">Tipo de Proyecto *</label>
-                            <select class="w-full px-6 py-4 bg-white border border-gray-200 text-gray-700 focus:outline-none focus:border-green-600 transition-colors duration-300 rounded-none">
-                                <option value="">Selecciona una opción</option>
-                                <option value="residencial">Diseño Residencial</option>
-                                <option value="comercial">Diseño Comercial</option>
-                                <option value="hoteles">Hotelería</option>
-                                <option value="restaurante">Restaurante</option>
-                                <option value="oficina">Oficina</option>
-                                <option value="otro">Otro</option>
+                        <div class="flex items-start group">
+                            <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mr-6 group-hover:bg-green-600 transition-all duration-300">
+                                <i class="fas fa-phone text-green-600 text-xl group-hover:text-white transition-colors duration-300"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-2xl text-gray-700 mb-2">Teléfono</h3>
+                                <p class="text-gray-600 font-light">+593 (XX) XXX XXXX<br>+593 (XX) XXX XXXX</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start group">
+                            <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mr-6 group-hover:bg-green-600 transition-all duration-300">
+                                <i class="fas fa-envelope text-green-600 text-xl group-hover:text-white transition-colors duration-300"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-2xl text-gray-700 mb-2">Email</h3>
+                                <p class="text-gray-600 font-light">info@premiumplas.com<br>ventas@premiumplas.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start group">
+                            <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mr-6 group-hover:bg-green-600 transition-all duration-300">
+                                <i class="fas fa-clock text-green-600 text-xl group-hover:text-white transition-colors duration-300"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-2xl text-gray-700 mb-2">Horario de Atención</h3>
+                                <p class="text-gray-600 font-light">Lunes - Viernes: 8:00 - 18:00<br>Sábados: 9:00 - 13:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Redes Sociales -->
+                    <div class="mt-10">
+                        <h3 class="font-serif text-2xl text-gray-700 mb-4">Síguenos en:</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white hover:bg-green-700 transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white hover:bg-green-700 transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white hover:bg-green-700 transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulario de Contacto -->
+                <div class="bg-white p-10 rounded-2xl shadow-xl">
+                    <h2 class="font-serif text-4xl text-gray-700 mb-8">Envíanos un Mensaje</h2>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="input-group">
+                                <label class="block text-gray-600 font-light mb-2">Nombre</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-600/20" placeholder="Tu nombre">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-gray-600 font-light mb-2">Apellido</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-600/20" placeholder="Tu apellido">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="block text-gray-600 font-light mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-600/20" placeholder="tu@email.com">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="block text-gray-600 font-light mb-2">Teléfono</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-600/20" placeholder="+593 XXXXXXXXX">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="block text-gray-600 font-light mb-2">Asunto</label>
+                            <select class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-600/20">
+                                <option>Consulta General</option>
+                                <option>Pedido de Cotización</option>
+                                <option>Sugerencia</option>
+                                <option>Queja o Reclamo</option>
+                                <option>Otro</option>
                             </select>
                         </div>
                         
-                        <div>
-                            <label class="block text-gray-700 font-medium mb-3">Mensaje *</label>
-                            <textarea rows="6" placeholder="Cuéntanos más sobre tu proyecto, ideas y requerimientos..." class="w-full px-6 py-4 bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-colors duration-300 rounded-none resize-none"></textarea>
+                        <div class="input-group">
+                            <label class="block text-gray-600 font-light mb-2">Mensaje</label>
+                            <textarea rows="5" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-600/20" placeholder="Escribe tu mensaje aquí..."></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full md:w-auto px-12 py-5 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors duration-300 rounded-none">
+                        <button type="submit" class="w-full px-8 py-4 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-600/30 transform hover:-translate-y-1">
                             Enviar Mensaje
                         </button>
                     </form>
                 </div>
-                
-                <!-- Info de Contacto -->
-                <div class="lg:pl-16">
-                    <div class="bg-white p-10 border-l-4 border-green-600 mb-10">
-                        <h3 class="font-serif text-3xl text-gray-700 mb-6">Primera Consulta Gratuita</h3>
-                        <p class="text-gray-600 font-light leading-relaxed mb-4">
-                            Ofrecemos una consulta inicial sin costo donde discutimos tu proyecto, expectativas y posibilidades. No hay compromiso, solo una conversación sobre cómo podemos ayudarte.
-                        </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-center text-gray-700 font-light">
-                                <i class="fas fa-clock text-green-600 mr-4"></i>
-                                Duración: 45-60 minutos
-                            </li>
-                            <li class="flex items-center text-gray-700 font-light">
-                                <i class="fas fa-video text-green-600 mr-4"></i>
-                                Videollamada o presencial
-                            </li>
-                            <li class="flex items-center text-gray-700 font-light">
-                                <i class="fas fa-dollar-sign text-green-600 mr-4"></i>
-                                Sin costo
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="space-y-8">
-                        <div class="flex items-start">
-                            <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-6">
-                                <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-serif text-xl text-gray-700 mb-2">Nuestra Oficina</h4>
-                                <p class="text-gray-600 font-light">Av. Principal 1234<br>Col. Polanco, Ciudad de México<br>C.P. 11550</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-6">
-                                <i class="fas fa-phone text-green-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-serif text-xl text-gray-700 mb-2">Teléfono</h4>
-                                <p class="text-gray-600 font-light">+52 (55) 1234 5678<br>Lun - Vie: 9:00 - 18:00 hrs</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-6">
-                                <i class="fas fa-envelope text-green-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-serif text-xl text-gray-700 mb-2">Email</h4>
-                                <p class="text-gray-600 font-light">hola@estudionomada.com<br>proyectos@estudionomada.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Mapa -->
-                    <div class="mt-12">
-                        <div class="w-full h-80 bg-gray-100 grayscale grayscale-hover smooth-transition flex items-center justify-center">
-                            <i class="fas fa-map-marked-alt text-gray-300 text-6xl"></i>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- HORARIOS -->
-    <section class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Horarios</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Nuestros Horarios de Atención</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-10 text-center border-t-4 border-green-600">
-                    <i class="fas fa-calendar-alt text-green-600 text-4xl mb-6"></i>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4">Lunes a Viernes</h3>
-                    <p class="text-gray-600 font-light">9:00 - 18:00 hrs</p>
-                </div>
-                
-                <div class="bg-white p-10 text-center border-t-4 border-green-600">
-                    <i class="fas fa-calendar-day text-green-600 text-4xl mb-6"></i>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4">Sábados</h3>
-                    <p class="text-gray-600 font-light">10:00 - 14:00 hrs</p>
-                    <p class="text-gray-500 text-sm mt-2">Con cita previa</p>
-                </div>
-                
-                <div class="bg-white p-10 text-center border-t-4 border-green-600">
-                    <i class="fas fa-calendar-times text-green-600 text-4xl mb-6"></i>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4">Domingos</h3>
-                    <p class="text-gray-600 font-light">Cerrado</p>
-                    <p class="text-gray-500 text-sm mt-2">Emergencias: +52 (55) 8765 4321</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-24 bg-cream">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Preguntas Frecuentes</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">FAQ</h2>
-            </div>
-            
-            <div class="space-y-8">
-                <div class="bg-white p-8 border-l-4 border-green-600">
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4">¿Cuánto cuesta un proyecto de diseño de interiores?</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">
-                        El costo varía según la magnitud del proyecto. Ofrecemos desde asesorías puntuales por hora hasta proyectos integrales completos. Contáctanos para una cotización personalizada.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 border-l-4 border-green-600">
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4">¿Cuánto tiempo toma completar un proyecto?</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">
-                        Depende de la complejidad. Proyectos residenciales pequeños pueden tomar 2-3 meses, mientras que proyectos comerciales grandes pueden需要的 时间更长。通常，完整的室内设计项目需要3到9个月的时间。
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 border-l-4 border-green-600">
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4">¿Trabajan fuera de Ciudad de México?</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">
-                        ¡Sí! Hemos completado proyectos en toda México y internacionalmente. Para proyectos fuera de la ciudad, incluimos viáticos y gastos de traslado en nuestra cotización.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 border-l-4 border-green-600">
-                    <h3 class="font-serif text-2xl text-gray-700 mb-4">¿Incluyen la ejecución y construcción?</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">
-                        Ofrecemos servicios de diseño e ejecución. Tenemos un equipo de contratistas y artesanos de confianza para llevar a cabo los proyectos. También podemos trabajar con tus contratistas existentes.
-                    </p>
-                </div>
-            </div>
+    <!-- MAPA -->
+    <section class="py-0">
+        <div class="w-full h-[500px] bg-gray-200">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.814123456789!2d-78.5!3d-2.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwNTQnMDAuMCJTIDc4wrAyOScwMC4wIkU!5e0!3m2!1ses!2sec!4v1234567890!5m2!1ses!2sec" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
         </div>
     </section>
 
@@ -302,11 +434,11 @@
     <footer class="bg-cream pt-20 pb-10 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-16 mb-16">
-                <!-- Info Estudio -->
+                <!-- Info PremiumPlas -->
                 <div>
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-16 w-auto mb-6">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto mb-6">
                     <p class="text-gray-600 font-light leading-relaxed mb-6">
-                        Estudio de diseño de interiores premium dedicado a crear espacios únicos que inspiran y transforman vidas.
+                        Empresa líder en distribución de artículos de cocina, menaje y productos de limpieza. Calidad, compromiso y servicio cercano.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
@@ -316,10 +448,7 @@
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-pinterest-p"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
@@ -343,19 +472,19 @@
                     <ul class="space-y-4">
                         <li class="flex items-start text-gray-600 font-light">
                             <i class="fas fa-map-marker-alt text-green-600 mt-1 mr-4"></i>
-                            Av. Principal 1234, Ciudad de México
+                            Av. Principal 1234, Ciudad
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-phone text-green-600 mr-4"></i>
-                            +52 (55) 1234 5678
+                            +593 (XX) XXX XXXX
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-envelope text-green-600 mr-4"></i>
-                            hola@estudionomada.com
+                            info@premiumplas.com
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-clock text-green-600 mr-4"></i>
-                            Lun - Vie: 9:00 - 18:00 hrs
+                            Lun - Vie: 8:00 - 18:00 hrs
                         </li>
                     </ul>
                 </div>
@@ -364,7 +493,7 @@
             <!-- Copyright -->
             <div class="border-t border-gray-200 pt-10 text-center">
                 <p class="text-gray-500 font-light">
-                    &copy; 2024 Estudio Nómada. Todos los derechos reservados.
+                    &copy; 2024 PremiumPlas. Todos los derechos reservados.
                 </p>
             </div>
         </div>
@@ -374,20 +503,70 @@
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mainHeader = document.getElementById('main-header');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileMenuOverlay.classList.add('open');
+            mobileMenuBtn.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.classList.remove('open');
+            mobileMenuBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
         
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                if (mobileMenu.classList.contains('open')) {
+                    closeMobileMenu();
                 } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
+                    openMobileMenu();
                 }
             });
         }
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                mainHeader.classList.add('shadow-lg');
+                mainHeader.classList.remove('py-4');
+                mainHeader.classList.add('py-3');
+            } else {
+                mainHeader.classList.remove('shadow-lg');
+                mainHeader.classList.remove('py-3');
+                mainHeader.classList.add('py-4');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     </script>
 
 </body>

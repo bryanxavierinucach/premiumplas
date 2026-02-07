@@ -91,47 +91,246 @@
                 opacity: 0;
             }
         }
+        
+        /* Modern Menu Styles */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #059669, #047857);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 80%;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            color: #059669;
+            font-weight: 500;
+        }
+        
+        /* Glassmorphism Header */
+        .glass-header {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(5, 150, 105, 0.1);
+        }
+        
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, rgba(5, 150, 105, 0.1), transparent);
+            transition: width 0.3s ease;
+        }
+        
+        .mobile-nav-link:hover::before,
+        .mobile-nav-link.active::before {
+            width: 100%;
+        }
+        
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            padding-left: 1.5rem;
+        }
+        
+        /* Animated Hamburger */
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        /* Logo Scale Animation */
+        .logo-container {
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Scroll indicator */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
     </style>
 </head>
 <body class="bg-cream font-sans text-gray-700">
     
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-sm">
-        <nav class="max-w-7xl mx-auto px-6 py-6">
+    <!-- HEADER MODERNO -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0">
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-24 w-auto">
+                <a href="index.html" class="logo-container flex-shrink-0">
+                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-20 w-auto">
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 text-green-600">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Contacto</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="index.html" class="nav-link active text-gray-800 font-medium">
+                        <span class="relative z-10">Inicio</span>
+                    </a>
+                    <a href="nosotros.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Nosotros</span>
+                    </a>
+                    <a href="clientes.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Clientes</span>
+                    </a>
+                    <a href="catalogo.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Catálogo</span>
+                    </a>
+                    <a href="blog.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Blog</span>
+                    </a>
+                    <a href="contacto.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="catalogo.html" class="px-6 py-2.5 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-600/30 transform hover:-translate-y-0.5">
+                        Ver Catálogo
+                    </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-amber-600">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button id="mobile-menu-btn" class="hamburger lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
                 </button>
             </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-cream shadow-lg py-6 px-6 border-t border-gray-200">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2 text-green-600">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Contacto</a>
+        </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 lg:hidden"></div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-cream z-50 lg:hidden shadow-2xl">
+            <div class="p-6">
+                <!-- Mobile Logo -->
+                <div class="flex items-center justify-between mb-8">
+                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-16 w-auto">
+                    <button id="mobile-menu-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-times text-xl text-gray-600"></i>
+                    </button>
+                </div>
+                
+                <!-- Mobile Navigation -->
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="mobile-nav-link active px-4 py-3 text-green-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-home mr-3 w-5"></i>Inicio
+                    </a>
+                    <a href="nosotros.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-users mr-3 w-5"></i>Nosotros
+                    </a>
+                    <a href="clientes.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-heart mr-3 w-5"></i>Clientes
+                    </a>
+                    <a href="catalogo.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-box mr-3 w-5"></i>Catálogo
+                    </a>
+                    <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-newspaper mr-3 w-5"></i>Blog
+                    </a>
+                    <a href="contacto.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-envelope mr-3 w-5"></i>Contacto
+                    </a>
+                </div>
+                
+                <!-- Mobile CTA -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <a href="catalogo.html" class="block w-full px-6 py-3 bg-green-600 text-white font-medium text-center rounded-full hover:bg-green-700 transition-all duration-300">
+                        Ver Catálogo
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-4 mt-6">
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- HERO SECTION WITH CAROUSEL -->
@@ -396,20 +595,70 @@
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mainHeader = document.getElementById('main-header');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileMenuOverlay.classList.add('open');
+            mobileMenuBtn.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.classList.remove('open');
+            mobileMenuBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
         
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                if (mobileMenu.classList.contains('open')) {
+                    closeMobileMenu();
                 } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
+                    openMobileMenu();
                 }
             });
         }
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                mainHeader.classList.add('shadow-lg');
+                mainHeader.classList.remove('py-4');
+                mainHeader.classList.add('py-3');
+            } else {
+                mainHeader.classList.remove('shadow-lg');
+                mainHeader.classList.remove('py-3');
+                mainHeader.classList.add('py-4');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     </script>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes - Estudio Nómada</title>
+    <title>Clientes - Premiumplas</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,270 +40,355 @@
     </script>
     
     <style>
-        .grayscale-hover:hover {
-            filter: grayscale(0%);
-        }
-        .grayscale {
-            filter: grayscale(100%);
-        }
         .smooth-transition {
             transition: all 0.4s ease-in-out;
+        }
+        
+        /* Modern Menu Styles */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #059669, #047857);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 80%;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            color: #059669;
+            font-weight: 500;
+        }
+        
+        /* Glassmorphism Header */
+        .glass-header {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(5, 150, 105, 0.1);
+        }
+        
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, rgba(5, 150, 105, 0.1), transparent);
+            transition: width 0.3s ease;
+        }
+        
+        .mobile-nav-link:hover::before,
+        .mobile-nav-link.active::before {
+            width: 100%;
+        }
+        
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            padding-left: 1.5rem;
+        }
+        
+        /* Animated Hamburger */
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        /* Logo Scale Animation */
+        .logo-container {
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body class="bg-cream font-sans text-gray-700">
     
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-sm">
-        <nav class="max-w-7xl mx-auto px-6 py-6">
+    <!-- HEADER MODERNO -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0">
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-24 w-auto">
+                <a href="index.html" class="logo-container flex-shrink-0">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-20 w-auto">
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 text-green-600">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300">Contacto</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Inicio</span>
+                    </a>
+                    <a href="nosotros.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Nosotros</span>
+                    </a>
+                    <a href="clientes.html" class="nav-link active text-gray-800 font-medium">
+                        <span class="relative z-10">Clientes</span>
+                    </a>
+                    <a href="catalogo.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Catálogo</span>
+                    </a>
+                    <a href="blog.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Blog</span>
+                    </a>
+                    <a href="contacto.html" class="nav-link text-gray-600 hover:text-gray-800 font-medium">
+                        <span class="relative z-10">Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="catalogo.html" class="px-6 py-2.5 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-600/30 transform hover:-translate-y-0.5">
+                        Ver Catálogo
+                    </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-amber-600">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button id="mobile-menu-btn" class="hamburger lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-gray-700 rounded"></span>
                 </button>
             </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-cream shadow-lg py-6 px-6 border-t border-gray-200">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Inicio</a>
-                    <a href="nosotros.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Nosotros</a>
-                    <a href="clientes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2 text-green-600">Clientes</a>
-                    <a href="catalogo.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Catálogo</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Blog</a>
-                    <a href="contacto.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 py-2">Contacto</a>
+        </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 lg:hidden"></div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-cream z-50 lg:hidden shadow-2xl">
+            <div class="p-6">
+                <!-- Mobile Logo -->
+                <div class="flex items-center justify-between mb-8">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto">
+                    <button id="mobile-menu-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-times text-xl text-gray-600"></i>
+                    </button>
+                </div>
+                
+                <!-- Mobile Navigation -->
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-home mr-3 w-5"></i>Inicio
+                    </a>
+                    <a href="nosotros.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-users mr-3 w-5"></i>Nosotros
+                    </a>
+                    <a href="clientes.html" class="mobile-nav-link active px-4 py-3 text-green-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-heart mr-3 w-5"></i>Clientes
+                    </a>
+                    <a href="catalogo.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-box mr-3 w-5"></i>Catálogo
+                    </a>
+                    <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-newspaper mr-3 w-5"></i>Blog
+                    </a>
+                    <a href="contacto.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-envelope mr-3 w-5"></i>Contacto
+                    </a>
+                </div>
+                
+                <!-- Mobile CTA -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <a href="catalogo.html" class="block w-full px-6 py-3 bg-green-600 text-white font-medium text-center rounded-full hover:bg-green-700 transition-all duration-300">
+                        Ver Catálogo
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-4 mt-6">
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80'); background-size: cover; background-position: center;">
+    <section class="relative pt-32 pb-24" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-blue-900/60"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
-            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Confían en nosotros</span>
+            <span class="text-white/80 font-light tracking-widest uppercase text-sm">Nuestra Reputación</span>
             <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mt-4 mb-6">Nuestros Clientes</h1>
         </div>
     </section>
 
-    <!-- INTRO SECTION -->
-    <section class="py-24 bg-cream">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <p class="text-gray-600 text-xl font-light leading-relaxed">
-                A lo largo de más de 15 años, hemos tenido el privilegio de trabajar con más de 50 clientes satisfechos, desde familias que buscan transformar su hogar hasta empresas que desean crear espacios de trabajo inspiradores.
-            </p>
-        </div>
-    </section>
-
-    <!-- MARCAS SECTION -->
-    <section class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Marcas y Empresas</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Han confiado en nosotros</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-12 items-center">
-                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
-                    <i class="fas fa-building text-5xl text-gray-400"></i>
-                </div>
-                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
-                    <i class="fas fa-hotel text-5xl text-gray-400"></i>
-                </div>
-                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
-                    <i class="fas fa-store text-5xl text-gray-400"></i>
-                </div>
-                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
-                    <i class="fas fa-briefcase text-5xl text-gray-400"></i>
-                </div>
-                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
-                    <i class="fas fa-spa text-5xl text-gray-400"></i>
-                </div>
-                <div class="flex items-center justify-center p-8 bg-white hover:shadow-lg smooth-transition grayscale grayscale-hover">
-                    <i class="fas fa-utensils text-5xl text-gray-400"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIOS SECTION -->
+    <!-- CLIENTES -->
     <section class="py-32 bg-cream">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20">
+                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Confían en Nosotros</span>
+                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Empresas que Trabajan con Nosotros</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
+            </div>
+            
+            <!-- Logos de Clientes -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 items-center mb-20">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl smooth-transition flex items-center justify-center h-32">
+                    <span class="font-serif text-2xl text-gray-600 font-bold">Hotel Luxury</span>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl smooth-transition flex items-center justify-center h-32">
+                    <span class="font-serif text-2xl text-gray-600 font-bold">Restaurante Elite</span>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl smooth-transition flex items-center justify-center h-32">
+                    <span class="font-serif text-2xl text-gray-600 font-bold">Catering Pro</span>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl smooth-transition flex items-center justify-center h-32">
+                    <span class="font-serif text-2xl text-gray-600 font-bold">Casa de Huéspedes</span>
+                </div>
+            </div>
+            
+            <!-- TESTIMONIOS -->
+            <div class="text-center mb-16">
                 <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Testimonios</span>
                 <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Lo que dicen nuestros clientes</h2>
-                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-white p-10 border-l-4 border-green-600">
-                    <i class="fas fa-quote-left text-green-600 text-2xl mb-6"></i>
-                    <p class="text-gray-600 text-lg font-light italic leading-relaxed mb-8">
-                        "Estudio Nómada transformó completamente nuestro hogar. Su atención al detalle y sensibilidad estética superaron todas nuestras expectativas. Recomendamos altamente sus servicios."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-gray-500"></i>
+                <div class="bg-white p-10 rounded-xl shadow-lg hover:shadow-xl smooth-transition">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-green-600 text-2xl"></i>
                         </div>
                         <div>
-                            <div class="font-serif text-xl text-gray-700">María González</div>
-                            <div class="text-gray-500 text-sm">Cliente Residencial</div>
+                            <div class="font-serif text-2xl text-gray-700">María González</div>
+                            <div class="text-gray-500">Hotel Director</div>
                         </div>
+                    </div>
+                    <p class="text-gray-600 text-lg font-light leading-relaxed italic">
+                        "PremiumPlas ha sido nuestro proveedor de confianza durante años. La calidad de sus productos y la puntualidad en las entregas son excepcionales. Recomendamos ampliamente sus servicios."
+                    </p>
+                    <div class="mt-4 flex text-amber-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
                 
-                <div class="bg-white p-10 border-l-4 border-green-600">
-                    <i class="fas fa-quote-left text-green-600 text-2xl mb-6"></i>
-                    <p class="text-gray-600 text-lg font-light italic leading-relaxed mb-8">
-                        "Profesionalismo excepcional y creatividad sin límites. El diseño de nuestra oficina refleja perfectamente nuestra identidad corporativa. Una experiencia impecable."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-gray-500"></i>
+                <div class="bg-white p-10 rounded-xl shadow-lg hover:shadow-xl smooth-transition">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-green-600 text-2xl"></i>
                         </div>
                         <div>
-                            <div class="font-serif text-xl text-gray-700">Carlos Ramírez</div>
-                            <div class="text-gray-500 text-sm">CEO, Tech Solutions</div>
+                            <div class="font-serif text-2xl text-gray-700">Carlos Ramírez</div>
+                            <div class="text-gray-500">Restaurante Owner</div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="bg-white p-10 border-l-4 border-green-600">
-                    <i class="fas fa-quote-left text-green-600 text-2xl mb-6"></i>
-                    <p class="text-gray-600 text-lg font-light italic leading-relaxed mb-8">
-                        "Desde el primer momento, el equipo de Estudio Nómada entendió nuestra visión. Crearon un restaurante que no solo es hermoso, sino que también mejora la experiencia de nuestros comensales."
+                    <p class="text-gray-600 text-lg font-light leading-relaxed italic">
+                        "Encontré en PremiumPlas todo lo que necesito para mi restaurante. La variedad de productos y la atención personalizada hacen que trabajar con ellos sea una experiencia excelente."
                     </p>
-                    <div class="flex items-center">
-                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-gray-500"></i>
-                        </div>
-                        <div>
-                            <div class="font-serif text-xl text-gray-700">Elena Torres</div>
-                            <div class="text-gray-500 text-sm">Propietaria, La Terraza</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-10 border-l-4 border-green-600">
-                    <i class="fas fa-quote-left text-green-600 text-2xl mb-6"></i>
-                    <p class="text-gray-600 text-lg font-light italic leading-relaxed mb-8">
-                        "Trabajar con Estudio Nómada fue una experiencia transformadora. Transformed our hotel lobby into a space that guests love. Our occupancy rates have increased since the renovation."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-gray-500"></i>
-                        </div>
-                        <div>
-                            <div class="font-serif text-xl text-gray-700">Roberto Sánchez</div>
-                            <div class="text-gray-500 text-sm">Director, Hotel Boutique</div>
-                        </div>
+                    <div class="mt-4 flex text-amber-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CASOS DE ÉXITO -->
-    <section class="py-32 bg-blue-900">
+    <!-- ESTADÍSTICAS -->
+    <section class="py-24 bg-green-600">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Casos de Éxito</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-white mt-4 mb-6">Proyectos que hablan por sí mismos</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="bg-white/10 backdrop-blur-sm p-8 border border-white/20">
-                    <div class="font-serif text-4xl text-white mb-4">200+</div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Proyectos Completados</h3>
-                    <p class="text-white/80 font-light">Desde residenciales hasta comerciales, hemos completado más de 200 proyectos exitosos.</p>
+            <div class="grid md:grid-cols-4 gap-12 text-center">
+                <div>
+                    <div class="font-serif text-5xl text-white mb-2">500+</div>
+                    <div class="text-white/80 font-light">Clientes Satisfechos</div>
                 </div>
-                
-                <div class="bg-white/10 backdrop-blur-sm p-8 border border-white/20">
-                    <div class="font-serif text-4xl text-white mb-4">98%</div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Satisfacción del Cliente</h3>
-                    <p class="text-white/80 font-light">Nuestro compromiso con la excelencia nos mantiene en los estándares más altos.</p>
+                <div>
+                    <div class="font-serif text-5xl text-white mb-2">50+</div>
+                    <div class="text-white/80 font-light">Empresas Aliadas</div>
                 </div>
-                
-                <div class="bg-white/10 backdrop-blur-sm p-8 border border-white/20">
-                    <div class="font-serif text-4xl text-white mb-4">12</div>
-                    <h3 class="font-serif text-2xl text-white mb-4">Premios Internacionales</h3>
-                    <p class="text-white/80 font-light">Reconocidos por nuestra innovación y diseño excepcional a nivel mundial.</p>
+                <div>
+                    <div class="font-serif text-5xl text-white mb-2">98%</div>
+                    <div class="text-white/80 font-light">Tasa de Satisfacción</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CLIENTES RESIDENCIALES -->
-    <section class="py-32 bg-cream">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <span class="text-amber-600 font-medium tracking-widest uppercase text-sm">Proyectos Residenciales</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mt-4 mb-6">Hogares transformados</h2>
-                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group">
-                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80" alt="Proyecto Residencial 1" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Villa Mediterránea</h3>
-                    <p class="text-green-600 font-medium mb-2">Ciudad de México</p>
-                    <p class="text-gray-600 font-light">450 m² de diseño integral con vista al bosque.</p>
+                <div>
+                    <div class="font-serif text-5xl text-white mb-2">10+</div>
+                    <div class="text-white/80 font-light">Años de Experiencia</div>
                 </div>
-                
-                <div class="group">
-                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Proyecto Residencial 2" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Penthouse Urbano</h3>
-                    <p class="text-green-600 font-medium mb-2">Polanco, CDMX</p>
-                    <p class="text-gray-600 font-light">200 m² con diseño minimalista y elegante.</p>
-                </div>
-                
-                <div class="group">
-                    <div class="w-full h-72 bg-gray-100 mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Proyecto Residencial 3" class="w-full h-full object-cover grayscale grayscale-hover smooth-transition">
-                    </div>
-                    <h3 class="font-serif text-2xl text-gray-700 mb-2">Casa de Campo</h3>
-                    <p class="text-green-600 font-medium mb-2">Valle de Bravo</p>
-                    <p class="text-gray-600 font-light">600 m² con materiales rústicos y contemporáneos.</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="catalogo.html" class="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-300 group">
-                    Ver todos los proyectos
-                    <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 smooth-transition"></i>
-                </a>
             </div>
         </div>
     </section>
 
     <!-- CTA SECTION -->
-    <section class="py-32 bg-gray-100">
+    <section class="py-32 bg-blue-900">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="font-serif text-5xl md:text-6xl text-gray-700 mb-6">¿Te gustaría ser nuestro próximo cliente?</h2>
-            <p class="text-gray-600 text-xl font-light leading-relaxed mb-10">
-                Agenda una consulta gratuita y descubre cómo podemos transformar tu espacio.
+            <h2 class="font-serif text-5xl md:text-6xl text-white mb-6">¿Quieres ser nuestro cliente?</h2>
+            <p class="text-white/80 text-xl font-light leading-relaxed mb-10">
+                Únete a cientos de empresas que ya disfrutan de nuestros productos y servicios de primera calidad.
             </p>
-            <a href="contacto.html" class="inline-block px-12 py-5 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors duration-300 rounded-none">
-                Agendar Consulta
+            <a href="contacto.html" class="inline-block px-12 py-5 bg-green-600 text-white font-medium hover:bg-green-700 transition-all duration-300 rounded-full">
+                Contáctanos
             </a>
         </div>
     </section>
@@ -312,11 +397,11 @@
     <footer class="bg-cream pt-20 pb-10 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-16 mb-16">
-                <!-- Info Estudio -->
+                <!-- Info PremiumPlas -->
                 <div>
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-16 w-auto mb-6">
+                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto mb-6">
                     <p class="text-gray-600 font-light leading-relaxed mb-6">
-                        Estudio de diseño de interiores premium dedicado a crear espacios únicos que inspiran y transforman vidas.
+                        Empresa líder en distribución de artículos de cocina, menaje y productos de limpieza. Calidad, compromiso y servicio cercano.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
@@ -326,10 +411,7 @@
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-pinterest-p"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-600 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
@@ -353,19 +435,19 @@
                     <ul class="space-y-4">
                         <li class="flex items-start text-gray-600 font-light">
                             <i class="fas fa-map-marker-alt text-green-600 mt-1 mr-4"></i>
-                            Av. Principal 1234, Ciudad de México
+                            Av. Principal 1234, Ciudad
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-phone text-green-600 mr-4"></i>
-                            +52 (55) 1234 5678
+                            +593 (XX) XXX XXXX
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-envelope text-green-600 mr-4"></i>
-                            hola@estudionomada.com
+                            info@premiumplas.com
                         </li>
                         <li class="flex items-center text-gray-600 font-light">
                             <i class="fas fa-clock text-green-600 mr-4"></i>
-                            Lun - Vie: 9:00 - 18:00 hrs
+                            Lun - Vie: 8:00 - 18:00 hrs
                         </li>
                     </ul>
                 </div>
@@ -374,7 +456,7 @@
             <!-- Copyright -->
             <div class="border-t border-gray-200 pt-10 text-center">
                 <p class="text-gray-500 font-light">
-                    &copy; 2024 Estudio Nómada. Todos los derechos reservados.
+                    &copy; 2024 PremiumPlas. Todos los derechos reservados.
                 </p>
             </div>
         </div>
@@ -384,20 +466,70 @@
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mainHeader = document.getElementById('main-header');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileMenuOverlay.classList.add('open');
+            mobileMenuBtn.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.classList.remove('open');
+            mobileMenuBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
         
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                if (mobileMenu.classList.contains('open')) {
+                    closeMobileMenu();
                 } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
+                    openMobileMenu();
                 }
             });
         }
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                mainHeader.classList.add('shadow-lg');
+                mainHeader.classList.remove('py-4');
+                mainHeader.classList.add('py-3');
+            } else {
+                mainHeader.classList.remove('shadow-lg');
+                mainHeader.classList.remove('py-3');
+                mainHeader.classList.add('py-4');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Set active nav link based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     </script>
 
 </body>
