@@ -137,20 +137,18 @@
         /* Mobile Menu Animation */
         .mobile-menu {
             transform: translateX(-100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .mobile-menu.open {
+        .mobile-menu.active {
             transform: translateX(0);
         }
         
         .mobile-menu-overlay {
-            opacity: 0;
-            visibility: hidden;
             transition: all 0.3s ease;
         }
         
-        .mobile-menu-overlay.open {
+        .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
         }
@@ -228,7 +226,7 @@
 <body class="bg-cream font-sans text-gray-700">
     
     <!-- HEADER MODERNO -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-3 overflow-visible">
         <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
@@ -273,65 +271,65 @@
                 </button>
             </div>
         </nav>
-        
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu-overlay" class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 lg:hidden"></div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-cream z-50 lg:hidden shadow-2xl">
-            <div class="p-6">
-                <!-- Mobile Logo -->
-                <div class="flex items-center justify-between mb-8">
-                    <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-16 w-auto">
-                    <button id="mobile-menu-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
-                        <i class="fas fa-times text-xl text-gray-600"></i>
-                    </button>
-                </div>
-                
-                <!-- Mobile Navigation -->
-                <div class="flex flex-col space-y-2">
-                    <a href="index.html" class="mobile-nav-link active px-4 py-3 text-green-600 font-medium rounded-lg transition-all duration-300">
-                        <i class="fas fa-home mr-3 w-5"></i>Inicio
-                    </a>
-                    <a href="nosotros.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
-                        <i class="fas fa-users mr-3 w-5"></i>Nosotros
-                    </a>
-                    <a href="clientes.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
-                        <i class="fas fa-heart mr-3 w-5"></i>Clientes
-                    </a>
-                    <a href="catalogo.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
-                        <i class="fas fa-box mr-3 w-5"></i>Catálogo
-                    </a>
-                    <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
-                        <i class="fas fa-newspaper mr-3 w-5"></i>Blog
-                    </a>
-                    <a href="contacto.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
-                        <i class="fas fa-envelope mr-3 w-5"></i>Contacto
-                    </a>
-                </div>
-                
-                <!-- Mobile CTA -->
-                <div class="mt-8 pt-6 border-t border-gray-200">
-                    <a href="catalogo.html" class="block w-full px-6 py-3 bg-green-600 text-white font-medium text-center rounded-full hover:bg-green-700 transition-all duration-300">
-                        Ver Catálogo
-                    </a>
-                </div>
-                
-                <!-- Social Links -->
-                <div class="flex justify-center space-x-4 mt-6">
-                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
-                        <i class="fab fa-pinterest-p"></i>
-                    </a>
-                </div>
+    </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-300 opacity-0 invisible"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-cream z-50 lg:hidden shadow-2xl transform -translate-x-full transition-transform duration-300">
+        <div class="p-6">
+            <!-- Mobile Logo -->
+            <div class="flex items-center justify-between mb-8">
+                <img src="assets/images/logocompleto.png" alt="Estudio Nómada Logo" class="h-16 w-auto">
+                <button id="mobile-menu-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-times text-xl text-gray-600"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="flex flex-col space-y-2">
+                <a href="index.html" class="mobile-nav-link active px-4 py-3 text-green-600 font-medium rounded-lg transition-all duration-300">
+                    <i class="fas fa-home mr-3 w-5"></i>Inicio
+                </a>
+                <a href="nosotros.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                    <i class="fas fa-users mr-3 w-5"></i>Nosotros
+                </a>
+                <a href="clientes.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                    <i class="fas fa-heart mr-3 w-5"></i>Clientes
+                </a>
+                <a href="catalogo.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                    <i class="fas fa-box mr-3 w-5"></i>Catálogo
+                </a>
+                <a href="blog.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                    <i class="fas fa-newspaper mr-3 w-5"></i>Blog
+                </a>
+                <a href="contacto.html" class="mobile-nav-link px-4 py-3 text-gray-600 font-medium rounded-lg transition-all duration-300">
+                    <i class="fas fa-envelope mr-3 w-5"></i>Contacto
+                </a>
+            </div>
+            
+            <!-- Mobile CTA -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <a href="catalogo.html" class="block w-full px-6 py-3 bg-green-600 text-white font-medium text-center rounded-full hover:bg-green-700 transition-all duration-300">
+                    Ver Catálogo
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-4 mt-6">
+                <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center text-gray-600 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
             </div>
         </div>
-    </header>
+    </div>
 
     <!-- HERO SECTION WITH CAROUSEL -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -600,22 +598,22 @@
         const mainHeader = document.getElementById('main-header');
         
         function openMobileMenu() {
-            mobileMenu.classList.add('open');
-            mobileMenuOverlay.classList.add('open');
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
             mobileMenuBtn.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
         
         function closeMobileMenu() {
-            mobileMenu.classList.remove('open');
-            mobileMenuOverlay.classList.remove('open');
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
             mobileMenuBtn.classList.remove('active');
             document.body.style.overflow = '';
         }
         
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', function() {
-                if (mobileMenu.classList.contains('open')) {
+                if (mobileMenu.classList.contains('active')) {
                     closeMobileMenu();
                 } else {
                     openMobileMenu();
