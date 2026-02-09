@@ -60,7 +60,7 @@ if (empty($posts)) {
             <p class="text-gray-600 text-xl font-light mb-10">
                 Lo sentimos, el artículo que buscas no existe o ha sido eliminado.
             </p>
-            <a href="blog.php" class="inline-flex items-center px-10 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-all duration-300 rounded-full shadow-lg hover:shadow-xl">
+            <a href="/blog.php" class="inline-flex items-center px-10 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-all duration-300 rounded-full shadow-lg hover:shadow-xl">
                 <i class="fas fa-arrow-left mr-3"></i>Volver al Blog
             </a>
         </div>
@@ -99,7 +99,7 @@ if (empty($posts)) {
             
             <!-- CTA: Volver al blog -->
             <div class="text-center mt-12">
-                <a href="blog.php" class="inline-flex items-center px-8 py-4 bg-blue-900 text-white font-medium hover:bg-blue-800 transition-all duration-300 rounded-full">
+                <a href="/blog.php" class="inline-flex items-center px-8 py-4 bg-blue-900 text-white font-medium hover:bg-blue-800 transition-all duration-300 rounded-full">
                     <i class="fas fa-arrow-left mr-3"></i>
                     Ver Más Artículos
                 </a>

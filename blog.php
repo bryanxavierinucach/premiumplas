@@ -94,7 +94,7 @@ $posts = ($response !== false && $http_code === 200) ? json_decode($response) : 
                         
                         // Link (clean URL)
                         $slug = isset($post->slug) ? $post->slug : '';
-                        $link = $slug ? "blog/{$slug}" : '#';
+                        $link = $slug ? "/blog/{$slug}" : '#';
                         ?>
                         
                         <!-- Article Card -->
@@ -128,7 +128,7 @@ $posts = ($response !== false && $http_code === 200) ? json_decode($response) : 
                 
                 <!-- Ver más -->
                 <div class="text-center mt-16">
-                    <a href="https://cms.premiumplas.com/blog" target="_blank" class="inline-block px-10 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-all duration-300 rounded-full shadow-lg hover:shadow-xl">
+                    <a href="/blog" target="_blank" class="inline-block px-10 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-all duration-300 rounded-full shadow-lg hover:shadow-xl">
                         Ver Más Artículos
                     </a>
                 </div>
