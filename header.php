@@ -30,8 +30,8 @@
     <link rel="canonical" href="<?php echo 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/logo.png">
-    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <link rel="apple-touch-icon" href="/assets/images/logo.png">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -294,7 +294,7 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="index.php" class="logo-container flex-shrink-0">
-                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-20 w-auto">
+                    <img src="/assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-20 w-auto">
                 </a>
                 
                 <!-- Desktop Navigation -->
@@ -344,7 +344,7 @@
         <div class="p-6">
             <!-- Mobile Logo -->
             <div class="flex items-center justify-between mb-8">
-                <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto">
+                <img src="/assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto">
                 <button id="mobile-menu-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
                     <i class="fas fa-times text-xl text-gray-600"></i>
                 </button>

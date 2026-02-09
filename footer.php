@@ -4,7 +4,7 @@
             <div class="grid md:grid-cols-3 gap-16 mb-16">
                 <!-- Info PremiumPlas -->
                 <div>
-                    <img src="assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto mb-6">
+                    <img src="/assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-16 w-auto mb-6">
                     <p class="text-gray-600 font-light leading-relaxed mb-6">
                         Empresa líder en distribución de artículos de cocina, menaje y productos de limpieza. Calidad, compromiso y servicio cercano.
                     </p>
