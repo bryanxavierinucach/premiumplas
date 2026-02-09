@@ -1,0 +1,25 @@
+# .htaccess para cms.premiumplas.com (WordPress)
+# Este archivo debe colocarse en la raíz del directorio WordPress
+
+RewriteEngine On
+
+# Permitir wp-admin
+RewriteCond %{REQUEST_URI} !^/wp-admin [NC]
+
+# Permitir wp-login.php
+RewriteCond %{REQUEST_URI} !^/wp-login\.php [NC]
+
+# Permitir API wp-json
+RewriteCond %{REQUEST_URI} !^/wp-json [NC]
+
+# Permitir wp-content (uploads, themes, plugins)
+RewriteCond %{REQUEST_URI} !^/wp-content [NC]
+
+# Permitir wp-includes
+RewriteCond %{REQUEST_URI} !^/wp-includes [NC]
+
+# Permitir archivos estáticos
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
+
+# Redirigir todo lo demás al sitio principal
+RewriteRule ^(.*)$ https://premiumplas.com/ [R=301,L]
