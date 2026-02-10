@@ -293,35 +293,35 @@
         <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <a href="index.php" class="logo-container flex-shrink-0">
+                <a href="/index.php" class="logo-container flex-shrink-0">
                     <img src="/assets/images/logocompleto.png" alt="PremiumPlas Logo" class="h-20 w-auto">
                 </a>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-2">
-                    <a href="index.php" class="nav-link <?php echo $current_page == 'index' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
+                    <a href="/index.php" class="nav-link <?php echo $current_page == 'index' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
                         <span class="relative z-10">Inicio</span>
                     </a>
-                    <a href="nosotros.php" class="nav-link <?php echo $current_page == 'nosotros' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
+                    <a href="/nosotros.php" class="nav-link <?php echo $current_page == 'nosotros' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
                         <span class="relative z-10">Nosotros</span>
                     </a>
-                    <a href="clientes.php" class="nav-link <?php echo $current_page == 'clientes' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
+                    <a href="/clientes.php" class="nav-link <?php echo $current_page == 'clientes' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
                         <span class="relative z-10">Clientes</span>
                     </a>
-                    <a href="catalogo.php" class="nav-link <?php echo $current_page == 'catalogo' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
+                    <a href="/catalogo.php" class="nav-link <?php echo $current_page == 'catalogo' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
                         <span class="relative z-10">Catálogo</span>
                     </a>
-                    <a href="blog.php" class="nav-link <?php echo $current_page == 'blog' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
+                    <a href="/blog.php" class="nav-link <?php echo $current_page == 'blog' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
                         <span class="relative z-10">Blog</span>
                     </a>
-                    <a href="contacto.php" class="nav-link <?php echo $current_page == 'contacto' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
+                    <a href="/contacto.php" class="nav-link <?php echo $current_page == 'contacto' ? 'active' : 'text-gray-600 hover:text-gray-800'; ?> font-medium">
                         <span class="relative z-10">Contacto</span>
                     </a>
                 </div>
                 
                 <!-- CTA Button -->
                 <div class="hidden lg:block">
-                    <a href="catalogo.php" class="px-6 py-2.5 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-600/30 transform hover:-translate-y-0.5">
+                    <a href="/catalogo.php" class="px-6 py-2.5 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-600/30 transform hover:-translate-y-0.5">
                         Ver Catálogo
                     </a>
                 </div>
@@ -352,29 +352,29 @@
             
             <!-- Mobile Navigation -->
             <div class="flex flex-col space-y-2">
-                <a href="index.php" class="mobile-nav-link <?php echo $current_page == 'index' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'index' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
+                <a href="/index.php" class="mobile-nav-link <?php echo $current_page == 'index' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'index' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
                     <i class="fas fa-home mr-3 w-5"></i>Inicio
                 </a>
-                <a href="nosotros.php" class="mobile-nav-link <?php echo $current_page == 'nosotros' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'nosotros' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
+                <a href="/nosotros.php" class="mobile-nav-link <?php echo $current_page == 'nosotros' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'nosotros' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
                     <i class="fas fa-users mr-3 w-5"></i>Nosotros
                 </a>
-                <a href="clientes.php" class="mobile-nav-link <?php echo $current_page == 'clientes' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'clientes' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
+                <a href="/clientes.php" class="mobile-nav-link <?php echo $current_page == 'clientes' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'clientes' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
                     <i class="fas fa-heart mr-3 w-5"></i>Clientes
                 </a>
-                <a href="catalogo.php" class="mobile-nav-link <?php echo $current_page == 'catalogo' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'catalogo' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
+                <a href="/catalogo.php" class="mobile-nav-link <?php echo $current_page == 'catalogo' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'catalogo' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
                     <i class="fas fa-box mr-3 w-5"></i>Catálogo
                 </a>
-                <a href="blog.php" class="mobile-nav-link <?php echo $current_page == 'blog' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'blog' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
+                <a href="/blog.php" class="mobile-nav-link <?php echo $current_page == 'blog' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'blog' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
                     <i class="fas fa-newspaper mr-3 w-5"></i>Blog
                 </a>
-                <a href="contacto.php" class="mobile-nav-link <?php echo $current_page == 'contacto' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'contacto' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
+                <a href="/contacto.php" class="mobile-nav-link <?php echo $current_page == 'contacto' ? 'active' : ''; ?> px-4 py-3 <?php echo $current_page == 'contacto' ? 'text-green-600' : 'text-gray-600'; ?> font-medium rounded-lg transition-all duration-300">
                     <i class="fas fa-envelope mr-3 w-5"></i>Contacto
                 </a>
             </div>
             
             <!-- Mobile CTA -->
             <div class="mt-8 pt-6 border-t border-gray-200">
-                <a href="catalogo.php" class="block w-full px-6 py-3 bg-green-600 text-white font-medium text-center rounded-full hover:bg-green-700 transition-all duration-300">
+                <a href="/catalogo.php" class="block w-full px-6 py-3 bg-green-600 text-white font-medium text-center rounded-full hover:bg-green-700 transition-all duration-300">
                     Ver Catálogo
                 </a>
             </div>
