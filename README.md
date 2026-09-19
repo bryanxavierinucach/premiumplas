@@ -20,4 +20,4 @@ Abre `http://localhost:8000`. No requiere instalación ni proceso de compilació
 
 ## Datos por confirmar antes de publicar
 
-El teléfono, la dirección, los perfiles sociales y el dominio definitivo no estaban confirmados, por lo que el sitio no inventa esos datos. El formulario prepara un correo para `ventas@premiumplas.com`; cambia esa dirección si el buzón oficial es otro. El catálogo usa las 55 imágenes y las especificaciones de las tres fichas disponibles en `assets/images/products/`. La referencia Ecopack 2.20 figura en la ficha, pero no tiene una imagen asociada en la carpeta.
+El WhatsApp comercial confirmado es `+593 99 657 8424`. La dirección, los perfiles sociales y el dominio definitivo siguen pendientes de confirmación. El formulario prepara un correo para `ventas@premiumplas.com`; cambia esa dirección si el buzón oficial es otro. El catálogo usa las 55 imágenes y las especificaciones de las tres fichas disponibles en `assets/images/products/`. La referencia Ecopack 2.20 figura en la ficha, pero no tiene una imagen asociada en la carpeta.
